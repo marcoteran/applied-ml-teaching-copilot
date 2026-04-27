@@ -1,14 +1,16 @@
-# Your Project Name
+# Applied ML Teaching Copilot
 
-A starter template for the AI Engineering Buildcamp capstone. Replace this README with a description of your own project.
+An AI Engineering Buildcamp capstone project for helping instructors and students work with the materials of an Applied Machine Learning course.
 
 ## The Problem
 
-Describe the problem your project solves and who has it. One or two sentences.
+Technical course content is usually distributed across slides, notebooks, readings, assignments, and instructor notes. This makes it difficult to quickly prepare lectures, answer student questions, or generate reliable study material grounded in the actual course content.
 
 ## What It Does
 
-Describe what the AI system does and a typical interaction. What does the user provide? What does the system return?
+Applied ML Teaching Copilot is an AI assistant that retrieves relevant passages from indexed course materials and uses them to answer questions or generate study-oriented outputs.
+
+A typical interaction might be: the user asks a question such as "When should I use MAE instead of MSE?" or requests an output such as "Create a short study guide about decision trees." The system returns a clear explanation, examples, key points, and guidance based on the retrieved course content.
 
 ## Setup
 
