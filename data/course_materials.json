@@ -1,0 +1,82 @@
+[
+  {
+    "id": "aml-001",
+    "module": "Regression",
+    "lesson": "Model Evaluation",
+    "topic": "MAE vs MSE",
+    "content": "Mean Absolute Error (MAE) averages the absolute size of prediction errors, so each error contributes linearly. Mean Squared Error (MSE) averages squared errors, so large mistakes receive much more weight. Use MAE when you want an evaluation metric that is easy to interpret in the target units and less sensitive to outliers. Use MSE when large errors are especially costly or when you want the training and evaluation process to strongly penalize big misses.",
+    "source_type": "lecture_note"
+  },
+  {
+    "id": "aml-002",
+    "module": "Supervised Learning",
+    "lesson": "Tree-Based Models",
+    "topic": "Decision trees",
+    "content": "A decision tree makes predictions by repeatedly splitting the data into smaller groups using feature-based rules. At each internal node, the tree chooses a split that makes the resulting groups more pure with respect to the target. Decision trees are useful because they are interpretable and can capture nonlinear relationships, but deep trees can overfit the training data.",
+    "source_type": "slide"
+  },
+  {
+    "id": "aml-003",
+    "module": "Supervised Learning",
+    "lesson": "Tree-Based Models",
+    "topic": "Gini impurity",
+    "content": "Gini impurity measures how often a randomly chosen example would be incorrectly labeled if it were assigned a class label according to the class distribution in a node. A node is pure when all examples belong to one class, giving Gini impurity of 0. Decision tree classifiers can use Gini impurity to choose splits that make child nodes more class-homogeneous.",
+    "source_type": "reading"
+  },
+  {
+    "id": "aml-004",
+    "module": "Supervised Learning",
+    "lesson": "Tree-Based Models",
+    "topic": "Entropy",
+    "content": "Entropy is a measure of uncertainty in the class labels at a node. If a node contains a balanced mix of classes, entropy is high. If a node mostly contains one class, entropy is low. Decision trees can use information gain, the reduction in entropy after a split, to decide which feature and threshold create the most useful split.",
+    "source_type": "lecture_note"
+  },
+  {
+    "id": "aml-005",
+    "module": "Model Evaluation",
+    "lesson": "Generalization",
+    "topic": "Overfitting",
+    "content": "Overfitting happens when a model learns patterns that are specific to the training data instead of patterns that generalize to new data. A common sign is very high training performance with much worse validation or test performance. Simpler models, regularization, pruning, more data, and careful validation can help reduce overfitting.",
+    "source_type": "instructor_note"
+  },
+  {
+    "id": "aml-006",
+    "module": "Model Evaluation",
+    "lesson": "Data Splitting",
+    "topic": "Train/test split",
+    "content": "A train/test split separates the dataset into data used to fit the model and data held out for final evaluation. The test set should represent new, unseen data and should not be used to tune model choices. This split helps estimate how well the trained model is likely to perform after deployment.",
+    "source_type": "notebook"
+  },
+  {
+    "id": "aml-007",
+    "module": "Model Evaluation",
+    "lesson": "Validation Strategies",
+    "topic": "Cross-validation",
+    "content": "Cross-validation evaluates a model by training and validating it across multiple data splits. In k-fold cross-validation, the data is divided into k folds; the model trains on k minus one folds and validates on the remaining fold, repeating until each fold has served as validation data. Cross-validation gives a more stable estimate than a single validation split, especially for smaller datasets.",
+    "source_type": "reading"
+  },
+  {
+    "id": "aml-008",
+    "module": "Classification",
+    "lesson": "Evaluation Metrics",
+    "topic": "Classification metrics",
+    "content": "Accuracy is the fraction of predictions that are correct, but it can hide poor performance on minority classes. Precision measures how many predicted positives are truly positive. Recall measures how many actual positives the model finds. The F1 score combines precision and recall into a single metric, which is useful when both false positives and false negatives matter.",
+    "source_type": "slide"
+  },
+  {
+    "id": "aml-009",
+    "module": "Classification",
+    "lesson": "Evaluation Metrics",
+    "topic": "Imbalanced classification",
+    "content": "In imbalanced classification, one class appears much more often than another. Accuracy can be misleading because a model may predict the majority class most of the time and still appear successful. For imbalanced problems, inspect precision, recall, F1 score, confusion matrices, and class-specific performance. Depending on the goal, resampling or class weights may help.",
+    "source_type": "assignment_note"
+  },
+  {
+    "id": "aml-010",
+    "module": "Retrieval-Augmented Generation",
+    "lesson": "RAG Baselines",
+    "topic": "RAG basics",
+    "content": "Retrieval-Augmented Generation, or RAG, combines a search step with a language model response. The system first retrieves relevant documents from an indexed knowledge base, then passes those documents to the model as context for answering the user's question. A basic RAG baseline should keep answers grounded in retrieved context and admit when the available context is insufficient.",
+    "source_type": "lecture_note"
+  }
+]
