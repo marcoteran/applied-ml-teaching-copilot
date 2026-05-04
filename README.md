@@ -34,6 +34,27 @@ A typical interaction might be: the user asks a question such as "When should I 
 
 - `notebooks/01-setup.ipynb` - smoke test that confirms your environment works
 - `notebooks/02-rag.ipynb` - a minimal RAG baseline you can adapt to your own data
+- `notebooks/03_agentic_teaching_copilot.ipynb` - an agentic teaching copilot prototype with tools over the course materials
+
+## Capstone Preparation 3: Agentic Teaching Copilot
+
+Notebook path: `notebooks/03_agentic_teaching_copilot.ipynb`
+
+Tools implemented:
+
+- `search_course_materials(query, num_results=5)` searches the Applied Machine Learning course-material index and returns compact results with metadata and snippets.
+- `get_course_material(material_id)` retrieves the full course-material record for a selected source id.
+
+How to run:
+
+1. Add `OPENAI_API_KEY` to your `.env` file.
+2. Install dependencies with `uv sync`.
+3. Start Jupyter with `uv run jupyter notebook`.
+4. Open and run `notebooks/03_agentic_teaching_copilot.ipynb`.
+
+What this adds beyond Week 1 RAG:
+
+The Week 1 notebook used a fixed RAG chain: search, build a prompt, call the LLM, and return an answer. The new notebook wraps the course-material knowledge base in tools and implements a custom OpenAI Responses API loop so the model can decide when to search, when to fetch full source material, and when it has enough grounded context to answer.
 
 ## Data
 

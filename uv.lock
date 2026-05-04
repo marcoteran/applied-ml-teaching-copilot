@@ -36,17 +36,21 @@ name = "applied-ml-teaching-copilot"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "ipykernel" },
     { name = "jupyter" },
     { name = "minsearch" },
     { name = "openai" },
+    { name = "pandas" },
     { name = "python-dotenv" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "ipykernel", specifier = ">=7.2.0" },
     { name = "jupyter", specifier = ">=1.0.0" },
     { name = "minsearch", specifier = ">=0.0.5" },
     { name = "openai", specifier = ">=1.50.0" },
+    { name = "pandas", specifier = ">=3.0.2" },
     { name = "python-dotenv", specifier = ">=1.0.0" },
 ]
 

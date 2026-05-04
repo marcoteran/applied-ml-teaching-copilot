@@ -5,8 +5,10 @@ description = "An AI assistant for instructors and students working with Applied
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "ipykernel>=7.2.0",
     "jupyter>=1.0.0",
     "minsearch>=0.0.5",
     "openai>=1.50.0",
+    "pandas>=3.0.2",
     "python-dotenv>=1.0.0",
 ]
