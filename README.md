@@ -56,6 +56,28 @@ What this adds beyond Week 1 RAG:
 
 The Week 1 notebook used a fixed RAG chain: search, build a prompt, call the LLM, and return an answer. The new notebook wraps the course-material knowledge base in tools and implements a custom OpenAI Responses API loop so the model can decide when to search, when to fetch full source material, and when it has enough grounded context to answer.
 
+## Capstone Preparation 4: Tests and Evaluation
+
+This stage adds a small Python package and pytest-based evaluation suite for the capstone agent.
+
+Tests added:
+
+- Regular pytest tests for the teaching agent in `tests/test_agent.py`
+- Shared test helpers in `tests/utils.py`
+- An LLM judge using Pydantic structured output in `tests/judge.py`
+- One LLM judge test in `tests/test_judge.py`
+- Optional token usage reporting in `tests/cost_tracker.py` and `tests/conftest.py`
+
+How to run:
+
+    uv run pytest -s
+
+Scenarios covered:
+
+- MAE vs MSE questions should search the course materials, fetch the full `aml-001` record, compare the metrics, and cite the material id.
+- Out-of-scope CNN questions should search, avoid unsupported general explanations, and state that the current course materials are insufficient.
+- Decision tree study-guide requests should use course materials and cite relevant material ids.
+
 ## Data
 
 Put your project data in the `data/` folder. See `notebooks/02-rag.ipynb` for how to load it.
