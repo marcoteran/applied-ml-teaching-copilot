@@ -78,6 +78,38 @@ Scenarios covered:
 - Out-of-scope CNN questions should search, avoid unsupported general explanations, and state that the current course materials are insufficient.
 - Decision tree study-guide requests should use course materials and cite relevant material ids.
 
+## Capstone Preparation 5: Monitoring and Observability
+
+This update adds Logfire-based tracing and structured event logging for the teaching copilot agent.
+
+Platform used: Logfire
+
+Why:
+
+- Provides traces for agent runs and tool call sequences
+- Captures user queries, tool names, fetched material ids, grounded refusals, and answer length
+- Enables future token/cost visibility and evaluation data for capstone readiness
+
+What is monitored:
+
+- agent runs
+- user queries
+- tool calls
+- fetched material ids
+- grounded refusals
+- answer length
+- simulated user feedback
+
+How to run:
+
+    uv run python scripts/run_monitored_sessions.py
+
+How this prepares the project for evaluation next week:
+
+- Adds observability to the core agent path without redesigning the agent
+- Makes agent behavior easier to inspect and validate during evaluation
+- Provides a reproducible session runner for monitored interactions
+
 ## Data
 
 Put your project data in the `data/` folder. See `notebooks/02-rag.ipynb` for how to load it.
