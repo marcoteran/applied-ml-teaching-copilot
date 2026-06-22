@@ -12,7 +12,7 @@ import streamlit as st
 
 def _bridge_streamlit_secrets_to_env() -> None:
     try:
-        for key in ("OPENAI_API_KEY", "LOGFIRE_TOKEN", "LOGFIRE_READ_TOKEN"):
+        for key in ("OPENAI_API_KEY", "LOGFIRE_TOKEN", "LOGFIRE_READ_TOKEN", "OPENAI_MODEL"):
             if key in st.secrets and not os.getenv(key):
                 os.environ[key] = str(st.secrets[key])
     except Exception:

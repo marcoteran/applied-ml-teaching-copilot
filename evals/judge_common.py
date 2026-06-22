@@ -9,6 +9,8 @@ from dotenv import load_dotenv
 from openai import OpenAI
 from pydantic import BaseModel, Field
 
+from src.config import OPENAI_MODEL
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 RESULTS_PATH = PROJECT_ROOT / "evals" / "results.json"
@@ -48,7 +50,7 @@ def judge_results(
     *,
     instructions: str,
     output_path: Path,
-    model: str = "gpt-4o-mini",
+    model: str = OPENAI_MODEL,
 ) -> None:
     load_dotenv()
     results = read_results()

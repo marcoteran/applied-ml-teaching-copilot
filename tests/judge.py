@@ -5,6 +5,7 @@ import json
 from openai import OpenAI
 from pydantic import BaseModel, Field
 
+from src.config import OPENAI_MODEL
 from tests.cost_tracker import capture_usage
 
 
@@ -31,7 +32,7 @@ def assert_criteria(result: dict, criteria: list[str]) -> None:
     client = create_judge_client()
 
     response = client.responses.parse(
-        model="gpt-4o-mini",
+        model=OPENAI_MODEL,
         instructions=(
             "You are a strict evaluator for an Applied ML Teaching Copilot. "
             "Assess only the submitted final answer and tool call history. "
@@ -57,7 +58,7 @@ def assert_criteria(result: dict, criteria: list[str]) -> None:
     usage = getattr(response, "usage", None)
     if usage is not None:
         capture_usage(
-            "gpt-4o-mini",
+            OPENAI_MODEL,
             getattr(usage, "input_tokens", 0) or 0,
             getattr(usage, "output_tokens", 0) or 0,
         )

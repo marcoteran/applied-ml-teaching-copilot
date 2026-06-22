@@ -3,16 +3,12 @@ from __future__ import annotations
 import json
 from typing import Any
 
-from dotenv import load_dotenv
 from openai import OpenAI
 
+from src.config import OPENAI_MODEL
 from src.monitoring import configure_monitoring, log_agent_event, start_session_span
 from src.tools import CourseMaterialTools, create_course_material_tools
 
-
-load_dotenv()
-
-DEFAULT_MODEL = "gpt-4o-mini"
 
 DEFAULT_INSTRUCTIONS = """
 You are Applied ML Teaching Copilot, an assistant for instructors and students
@@ -141,14 +137,14 @@ def run_teaching_copilot(
     with start_session_span("teaching_copilot_run", user_query=query):
         for _ in range(8):
             response = client.responses.create(
-                model=DEFAULT_MODEL,
+                model=OPENAI_MODEL,
                 instructions=DEFAULT_INSTRUCTIONS,
                 input=message_history,
                 tools=tool_schemas,
                 tool_choice="auto",
                 temperature=0,
             )
-            usage = _capture_usage(DEFAULT_MODEL, response)
+            usage = _capture_usage(OPENAI_MODEL, response)
             if usage is not None:
                 total_tokens += usage.get("input_tokens", 0) + usage.get("output_tokens", 0)
 
