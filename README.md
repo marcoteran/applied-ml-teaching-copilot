@@ -109,9 +109,45 @@ Current tests include:
 
 The monitored demo script runs representative sessions and uses Logfire when credentials are configured. It remains safe to run locally without Logfire credentials.
 
+<<<<<<< HEAD
 ```bash
 uv run python scripts/run_monitored_sessions.py
 ```
+=======
+## Capstone Preparation 5: Monitoring and Observability
+
+This update adds Logfire-based tracing and structured event logging for the teaching copilot agent.
+
+Platform used: Logfire
+
+Why:
+
+- Provides traces for agent runs and tool call sequences
+- Captures user queries, tool names, fetched material ids, grounded refusals, and answer length
+- Enables future token/cost visibility and evaluation data for capstone readiness
+
+What is monitored:
+
+- agent runs
+- user queries
+- tool calls
+- fetched material ids
+- grounded refusals
+- answer length
+- simulated user feedback
+
+How to run:
+
+    uv run python scripts/run_monitored_sessions.py
+
+How this prepares the project for evaluation next week:
+
+- Adds observability to the core agent path without redesigning the agent
+- Makes agent behavior easier to inspect and validate during evaluation
+- Provides a reproducible session runner for monitored interactions
+
+## Data
+>>>>>>> 39fd7a74855f1d305aeb49fa044f3167a1402eb3
 
 When Logfire is configured, the workflow is intended to capture session spans, agent run spans, and feedback-style events for review.
 

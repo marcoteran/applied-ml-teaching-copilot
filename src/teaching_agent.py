@@ -6,6 +6,7 @@ from typing import Any
 from dotenv import load_dotenv
 from openai import OpenAI
 
+from src.monitoring import configure_monitoring, log_agent_event, start_session_span
 from src.tools import CourseMaterialTools, create_course_material_tools
 
 
@@ -80,10 +81,10 @@ def _response_item_to_dict(item: Any) -> Any:
     return item
 
 
-def _capture_usage(model: str, response: Any) -> None:
+def _capture_usage(model: str, response: Any) -> dict[str, int] | None:
     usage = getattr(response, "usage", None)
     if usage is None:
-        return
+        return None
 
     input_tokens = getattr(usage, "input_tokens", 0) or 0
     output_tokens = getattr(usage, "output_tokens", 0) or 0
@@ -91,9 +92,11 @@ def _capture_usage(model: str, response: Any) -> None:
     try:
         from tests.cost_tracker import capture_usage
     except Exception:
-        return
+        pass
+    else:
+        capture_usage(model, input_tokens, output_tokens)
 
-    capture_usage(model, input_tokens, output_tokens)
+    return {"input_tokens": input_tokens, "output_tokens": output_tokens}
 
 
 def _should_force_insufficient_materials_answer(tool_call_history: list[dict]) -> bool:
@@ -122,6 +125,7 @@ def run_teaching_copilot(
     query: str,
     tools: CourseMaterialTools | None = None,
 ) -> dict:
+    configure_monitoring()
     course_tools = tools or create_course_material_tools()
     course_tools.reset_history()
 
@@ -132,57 +136,83 @@ def run_teaching_copilot(
         "get_course_material": course_tools.get_course_material,
     }
     message_history: list[Any] = [{"role": "user", "content": query}]
+    total_tokens = 0
 
-    for _ in range(8):
-        response = client.responses.create(
-            model=DEFAULT_MODEL,
-            instructions=DEFAULT_INSTRUCTIONS,
-            input=message_history,
-            tools=tool_schemas,
-            tool_choice="auto",
-            temperature=0,
-        )
-        _capture_usage(DEFAULT_MODEL, response)
-
-        response_items = [_response_item_to_dict(item) for item in response.output]
-        message_history.extend(response_items)
-
-        function_calls = [
-            item
-            for item in response.output
-            if getattr(item, "type", None) == "function_call"
-        ]
-
-        if not function_calls:
-            final_answer = response.output_text
-            if _should_force_insufficient_materials_answer(course_tools.tool_call_history):
-                final_answer = _insufficient_materials_answer(query)
-
-            return {
-                "final_answer": final_answer,
-                "tool_call_history": list(course_tools.tool_call_history),
-                "message_history": message_history,
-            }
-
-        for function_call in function_calls:
-            tool_name = function_call.name
-            arguments = json.loads(function_call.arguments or "{}")
-            tool_fn = available_tools.get(tool_name)
-
-            if tool_fn is None:
-                tool_result = {"error": f"Unknown tool: {tool_name}"}
-            else:
-                try:
-                    tool_result = tool_fn(**arguments)
-                except Exception as exc:
-                    tool_result = {"error": f"Tool execution failed: {exc}"}
-
-            message_history.append(
-                {
-                    "type": "function_call_output",
-                    "call_id": function_call.call_id,
-                    "output": json.dumps(tool_result),
-                }
+    with start_session_span("teaching_copilot_run", user_query=query):
+        for _ in range(8):
+            response = client.responses.create(
+                model=DEFAULT_MODEL,
+                instructions=DEFAULT_INSTRUCTIONS,
+                input=message_history,
+                tools=tool_schemas,
+                tool_choice="auto",
+                temperature=0,
             )
+            usage = _capture_usage(DEFAULT_MODEL, response)
+            if usage is not None:
+                total_tokens += usage.get("input_tokens", 0) + usage.get("output_tokens", 0)
+
+            response_items = [_response_item_to_dict(item) for item in response.output]
+            message_history.extend(response_items)
+
+            function_calls = [
+                item
+                for item in response.output
+                if getattr(item, "type", None) == "function_call"
+            ]
+
+            if not function_calls:
+                final_answer = response.output_text
+                if _should_force_insufficient_materials_answer(course_tools.tool_call_history):
+                    final_answer = _insufficient_materials_answer(query)
+
+                tool_names = [call.get("tool") for call in course_tools.tool_call_history]
+                material_ids = [
+                    call.get("arguments", {}).get("material_id")
+                    for call in course_tools.tool_call_history
+                    if call.get("tool") == "get_course_material"
+                ]
+                grounded_refusal = "current course materials are insufficient" in final_answer.lower()
+
+                log_agent_event(
+                    "teaching_copilot_run",
+                    user_query=query,
+                    tool_count=len(tool_names),
+                    tool_names=tool_names,
+                    material_ids=[mid for mid in material_ids if mid],
+                    grounded_refusal=grounded_refusal,
+                    final_answer_length=len(final_answer),
+                    token_usage=total_tokens or None,
+                )
+
+                result = {
+                    "final_answer": final_answer,
+                    "tool_call_history": list(course_tools.tool_call_history),
+                    "message_history": message_history,
+                }
+                if total_tokens:
+                    result["token_usage"] = total_tokens
+                return result
+
+            for function_call in function_calls:
+                tool_name = function_call.name
+                arguments = json.loads(function_call.arguments or "{}")
+                tool_fn = available_tools.get(tool_name)
+
+                if tool_fn is None:
+                    tool_result = {"error": f"Unknown tool: {tool_name}"}
+                else:
+                    try:
+                        tool_result = tool_fn(**arguments)
+                    except Exception as exc:
+                        tool_result = {"error": f"Tool execution failed: {exc}"}
+
+                message_history.append(
+                    {
+                        "type": "function_call_output",
+                        "call_id": function_call.call_id,
+                        "output": json.dumps(tool_result),
+                    }
+                )
 
     raise RuntimeError("Agent did not finish within the maximum number of turns.")
