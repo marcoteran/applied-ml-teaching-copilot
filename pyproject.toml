@@ -7,11 +7,7 @@ requires-python = ">=3.13"
 dependencies = [
     "ipykernel>=7.2.0",
     "jupyter>=1.0.0",
-<<<<<<< HEAD
-    "logfire>=4.16.0",
-=======
     "logfire>=4.33.0",
->>>>>>> 39fd7a74855f1d305aeb49fa044f3167a1402eb3
     "minsearch>=0.0.5",
     "openai>=1.50.0",
     "pandas>=3.0.2",
