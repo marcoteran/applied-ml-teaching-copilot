@@ -1,0 +1,171 @@
+[
+  {
+    "id": "eval-001",
+    "question": "Answer briefly: When should I use MAE instead of MSE in a regression problem?",
+    "base_question": "When should I use MAE instead of MSE in a regression problem?",
+    "expected_material_ids": [
+      "aml-001"
+    ],
+    "category": "regression_metrics",
+    "final_answer": "You should use Mean Absolute Error (MAE) when you want an evaluation metric that is easy to interpret in the target units and is less sensitive to outliers. In contrast, use Mean Squared Error (MSE) when large errors are particularly costly or when you want to strongly penalize big misses during training and evaluation (aml-001).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "MAE vs MSE",
+          "num_results": 5
+        },
+        "result_count": 1,
+        "result_ids": [
+          "aml-001"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-001"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-002",
+    "question": "Answer briefly: Give me a short study guide about decision trees.",
+    "base_question": "Give me a short study guide about decision trees.",
+    "expected_material_ids": [
+      "aml-002"
+    ],
+    "category": "decision_trees",
+    "final_answer": "### Study Guide: Decision Trees\n\n1. **Definition**:\n   - A decision tree is a model that makes predictions by splitting data into smaller groups based on feature-based rules. Each internal node represents a decision point that aims to create purer groups concerning the target variable (aml-002).\n\n2. **Key Concepts**:\n   - **Entropy**: Measures the uncertainty in class labels at a node. High entropy indicates a balanced mix of classes, while low entropy indicates dominance of one class. Decision trees use information gain (the reduction in entropy) to determine the best splits (aml-004).\n   - **Gini Impurity**: This metric assesses how often a randomly chosen example would be incorrectly labeled if assigned a class label based on the distribution in a node. A node is considered pure (Gini impurity of 0) when all examples belong to one class. Decision trees can use Gini impurity to select splits that enhance class homogeneity in child nodes (aml-003).\n\n3. **Advantages**:\n   - Decision trees are interpretable and can capture nonlinear relationships in data. However, they are prone to overfitting, especially when they are deep (aml-002).\n\nThis guide summarizes the essential aspects of decision trees, including their structure, evaluation metrics, and advantages. For further details, refer to the respective materials: aml-002, aml-003, and aml-004.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "decision trees",
+          "num_results": 5
+        },
+        "result_count": 3,
+        "result_ids": [
+          "aml-002",
+          "aml-004",
+          "aml-003"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-002"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-004"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-003"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-003",
+    "question": "Answer briefly: Why can accuracy be misleading for an imbalanced classification dataset?",
+    "base_question": "Why can accuracy be misleading for an imbalanced classification dataset?",
+    "expected_material_ids": [
+      "aml-008",
+      "aml-009"
+    ],
+    "category": "classification_metrics",
+    "final_answer": "Accuracy can be misleading in imbalanced classification datasets because it may reflect high performance by predominantly predicting the majority class. This can mask poor performance on the minority class, leading to an inaccurate assessment of the model's effectiveness. Instead, metrics like precision, recall, and F1 score should be used to evaluate performance more comprehensively (aml-009, aml-008).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "accuracy misleading imbalanced classification",
+          "num_results": 5
+        },
+        "result_count": 2,
+        "result_ids": [
+          "aml-009",
+          "aml-008"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-009"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-008"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-004",
+    "question": "Answer briefly: Can you explain convolutional neural networks using the course materials?",
+    "base_question": "Can you explain convolutional neural networks using the course materials?",
+    "expected_material_ids": [],
+    "category": "insufficient_materials",
+    "final_answer": "The current course materials are insufficient to answer this question using the course materials: Answer briefly: Can you explain convolutional neural networks using the course materials? To support this query, add relevant course notes, slides, or readings to the knowledge base.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "convolutional neural networks",
+          "num_results": 5
+        },
+        "result_count": 0,
+        "result_ids": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-005",
+    "question": "Explain for a beginner: When should I use MAE instead of MSE in a regression problem?",
+    "base_question": "When should I use MAE instead of MSE in a regression problem?",
+    "expected_material_ids": [
+      "aml-001"
+    ],
+    "category": "regression_metrics",
+    "final_answer": "In regression problems, you might choose between Mean Absolute Error (MAE) and Mean Squared Error (MSE) based on your specific needs:\n\n- **Use MAE** when you want an evaluation metric that is easy to interpret in the target units and is less sensitive to outliers. This means that each error contributes linearly to the overall error, making it straightforward to understand the average error in the same units as your predictions.\n\n- **Use MSE** when large errors are particularly costly or when you want to strongly penalize big mistakes. MSE squares the errors, which means that larger errors have a disproportionately larger impact on the overall error metric.\n\nThis distinction helps you choose the right metric based on how you want to handle errors in your model evaluation (aml-001).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "MAE vs MSE",
+          "num_results": 5
+        },
+        "result_count": 1,
+        "result_ids": [
+          "aml-001"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-001"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  }
+]

@@ -3,10 +3,13 @@ from __future__ import annotations
 import json
 from typing import Any
 
+from dotenv import load_dotenv
 from openai import OpenAI
 
 from src.tools import CourseMaterialTools, create_course_material_tools
 
+
+load_dotenv()
 
 DEFAULT_MODEL = "gpt-4o-mini"
 

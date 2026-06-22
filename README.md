@@ -1,83 +1,194 @@
 # Applied ML Teaching Copilot
 
-An AI Engineering Buildcamp capstone project for helping instructors and students work with the materials of an Applied Machine Learning course.
+A grounded AI assistant for Applied Machine Learning course materials.
 
-## The Problem
+Applied ML Teaching Copilot is an AI Engineering Buildcamp capstone project. It demonstrates a small but complete agentic application: course-material retrieval, tool use, grounded answering, insufficiency handling, monitoring hooks, tests, evaluation scenarios, LLM judge alignment, and a reviewer-friendly Streamlit UI.
 
-Technical course content is usually distributed across slides, notebooks, readings, assignments, and instructor notes. This makes it difficult to quickly prepare lectures, answer student questions, or generate reliable study material grounded in the actual course content.
+## Problem Statement
 
-## What It Does
+Students and instructors need a reliable assistant that answers from course materials and avoids hallucinating unsupported ML content. A helpful teaching copilot should explain what the course actually covers, cite source material ids, and clearly say when the available materials are insufficient.
 
-Applied ML Teaching Copilot is an AI assistant that retrieves relevant passages from indexed course materials and uses them to answer questions or generate study-oriented outputs.
+## What the Project Does
 
-A typical interaction might be: the user asks a question such as "When should I use MAE instead of MSE?" or requests an output such as "Create a short study guide about decision trees." The system returns a clear explanation, examples, key points, and guidance based on the retrieved course content.
+- Searches Applied ML course materials.
+- Retrieves exact material records before answering.
+- Answers with material ids such as `aml-001`.
+- Identifies insufficient course coverage instead of inventing unsupported answers.
+- Logs monitored demo sessions when Logfire is configured.
+- Supports evaluation with scenarios, manual labels, LLM judges, and alignment reports.
+- Provides a Streamlit chat UI for reviewers.
 
-## Setup
+## Architecture
 
-1. Install uv if you don't have it yet: https://docs.astral.sh/uv/getting-started/installation/
+```text
+User
+  -> Streamlit UI / scripts
+  -> Teaching Copilot Agent
+  -> tools
+  -> course material KB
+  -> grounded answer
 
-2. Clone this repository (or download the zip and extract it).
+Monitoring
+  -> Logfire
 
-3. Create a `.env` file from the template and add your API key:
+Evaluation
+  -> scenarios
+  -> results
+  -> labels
+  -> judge
+  -> alignment
+```
 
-       cp .env.example .env
+## Agent Tools
 
-4. Install dependencies:
+`search_course_materials(query, num_results=5)` searches the Applied ML knowledge base and returns compact records with ids, metadata, topics, and snippets.
 
-       uv sync
+`get_course_material(material_id)` retrieves the full source record for a selected material id. The agent is instructed to fetch full material before giving substantive grounded answers.
 
-5. Start Jupyter:
+## Repository Structure
 
-       uv run jupyter notebook
+- `src/` - agent loop and course-material tools.
+- `data/` - JSON course-material knowledge base.
+- `tests/` - pytest checks and an LLM judge test.
+- `scripts/` - monitored demo sessions.
+- `evals/` - scenario runner, manual labels, judge variants, and alignment summary tools.
+- `docs/` - demo transcript and project self-evaluation.
+- `notebooks/` - setup, RAG baseline, and agentic prototype notebooks.
+- `app.py` - Streamlit reviewer UI.
 
-## Notebooks
+## Quickstart
 
-- `notebooks/01-setup.ipynb` - smoke test that confirms your environment works
-- `notebooks/02-rag.ipynb` - a minimal RAG baseline you can adapt to your own data
-- `notebooks/03_agentic_teaching_copilot.ipynb` - an agentic teaching copilot prototype with tools over the course materials
+```bash
+uv sync
+copy .env.example .env
+```
 
-## Capstone Preparation 3: Agentic Teaching Copilot
+Add your key to `.env`:
 
-Notebook path: `notebooks/03_agentic_teaching_copilot.ipynb`
+```text
+OPENAI_API_KEY=...
+```
 
-Tools implemented:
+Run tests:
 
-- `search_course_materials(query, num_results=5)` searches the Applied Machine Learning course-material index and returns compact results with metadata and snippets.
-- `get_course_material(material_id)` retrieves the full course-material record for a selected source id.
+```bash
+uv run pytest -s
+```
 
-How to run:
+Launch the UI:
 
-1. Add `OPENAI_API_KEY` to your `.env` file.
-2. Install dependencies with `uv sync`.
-3. Start Jupyter with `uv run jupyter notebook`.
-4. Open and run `notebooks/03_agentic_teaching_copilot.ipynb`.
+```bash
+uv run streamlit run app.py
+```
 
-What this adds beyond Week 1 RAG:
+## Demo Prompts
 
-The Week 1 notebook used a fixed RAG chain: search, build a prompt, call the LLM, and return an answer. The new notebook wraps the course-material knowledge base in tools and implements a custom OpenAI Responses API loop so the model can decide when to search, when to fetch full source material, and when it has enough grounded context to answer.
+- When should I use MAE instead of MSE in a regression problem?
+- Give me a short study guide about decision trees.
+- Why can accuracy be misleading for an imbalanced classification dataset?
+- Can you explain convolutional neural networks using the course materials?
 
-## Capstone Preparation 4: Tests and Evaluation
+The CNN prompt is intentionally out of scope for the current knowledge base. The desired behavior is a grounded insufficiency response, not a generic CNN explanation.
 
-This stage adds a small Python package and pytest-based evaluation suite for the capstone agent.
+## Testing
 
-Tests added:
+The test suite checks that the agent searches and fetches material, cites source ids, answers grounded questions, and refuses unsupported out-of-scope answers.
 
-- Regular pytest tests for the teaching agent in `tests/test_agent.py`
-- Shared test helpers in `tests/utils.py`
-- An LLM judge using Pydantic structured output in `tests/judge.py`
-- One LLM judge test in `tests/test_judge.py`
-- Optional token usage reporting in `tests/cost_tracker.py` and `tests/conftest.py`
+```bash
+uv run pytest -s
+```
 
-How to run:
+Current tests include:
 
-    uv run pytest -s
+- MAE vs MSE tool use and citation behavior.
+- Decision tree study-guide grounding.
+- CNN out-of-scope insufficiency handling.
+- LLM judge criteria for MAE vs MSE grounding.
 
-Scenarios covered:
+## Monitoring
 
-- MAE vs MSE questions should search the course materials, fetch the full `aml-001` record, compare the metrics, and cite the material id.
-- Out-of-scope CNN questions should search, avoid unsupported general explanations, and state that the current course materials are insufficient.
-- Decision tree study-guide requests should use course materials and cite relevant material ids.
+The monitored demo script runs representative sessions and uses Logfire when credentials are configured. It remains safe to run locally without Logfire credentials.
 
-## Data
+```bash
+uv run python scripts/run_monitored_sessions.py
+```
 
-Put your project data in the `data/` folder. See `notebooks/02-rag.ipynb` for how to load it.
+When Logfire is configured, the workflow is intended to capture session spans, agent run spans, and feedback-style events for review.
+
+## Evaluation
+
+Run a smoke eval:
+
+```bash
+uv run python evals/run_evals.py --limit 5
+```
+
+Run all scenarios:
+
+```bash
+uv run python evals/run_evals.py
+```
+
+Run judge alignment:
+
+```bash
+uv run python evals/judge.py
+uv run python evals/compare_alignment.py --judged evals/results_judged.json --output evals/alignment_report.json
+
+uv run python evals/judge_improved.py
+uv run python evals/compare_alignment.py --judged evals/results_judged_improved.json --output evals/alignment_report_improved.json
+
+uv run python evals/judge_calibrated.py
+uv run python evals/compare_alignment.py --judged evals/results_judged_calibrated.json --output evals/alignment_report_calibrated.json
+```
+
+Known current evaluation metrics:
+
+- 60 scenarios.
+- 60 results collected.
+- 33 manual labels.
+- 32 good / 1 bad.
+- Failure category: incomplete.
+- Initial judge: accuracy 0.727, precision_bad 0.1, recall_bad 1.0, disagreements 9.
+- Improved judge: accuracy 0.576, precision_bad 0.067, recall_bad 1.0, disagreements 14.
+- Calibrated judge: accuracy 1.0, precision_bad 1.0, recall_bad 1.0, disagreements 0.
+
+The calibrated judge fixed the disagreement pattern where earlier judges penalized correct insufficiency responses for out-of-scope topics like CNNs. This matters because the project is designed to reward grounded refusal when the course materials do not support a general ML answer.
+
+## Reproducibility
+
+Common commands are available through the Makefile:
+
+```bash
+make install
+make test
+make app
+make monitor
+make eval-smoke
+make eval
+make judge
+make judge-improved
+make summary
+```
+
+On Windows without `make`, run the underlying `uv` commands from the Makefile directly.
+
+## Project Self-Evaluation
+
+See [docs/PROJECT_SELF_EVALUATION.md](docs/PROJECT_SELF_EVALUATION.md).
+
+## Limitations
+
+- The knowledge base is intentionally small.
+- Retrieval ranking has not yet been compared across multiple approaches.
+- Judge labels are still limited.
+- There is no cloud deployment unless one is added later.
+
+## Future Work
+
+- Expand the real course-material corpus.
+- Add retrieval comparison experiments.
+- Add a richer UI with source previews and feedback capture.
+- Deploy to cloud.
+- Add CI/CD.
+- Improve judge calibration with a train/test label split.

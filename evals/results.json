@@ -1,0 +1,2075 @@
+[
+  {
+    "id": "eval-001",
+    "question": "Answer briefly: When should I use MAE instead of MSE in a regression problem?",
+    "base_question": "When should I use MAE instead of MSE in a regression problem?",
+    "expected_material_ids": [
+      "aml-001"
+    ],
+    "category": "regression_metrics",
+    "final_answer": "You should use Mean Absolute Error (MAE) when you want an evaluation metric that is easy to interpret in the target units and is less sensitive to outliers. In contrast, use Mean Squared Error (MSE) when large errors are especially costly or when you want to strongly penalize big misses in the training and evaluation process (aml-001).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "MAE vs MSE",
+          "num_results": 5
+        },
+        "result_count": 1,
+        "result_ids": [
+          "aml-001"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-001"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-002",
+    "question": "Answer briefly: Give me a short study guide about decision trees.",
+    "base_question": "Give me a short study guide about decision trees.",
+    "expected_material_ids": [
+      "aml-002"
+    ],
+    "category": "decision_trees",
+    "final_answer": "### Study Guide: Decision Trees\n\n1. **Definition**:\n   - A decision tree is a model that makes predictions by splitting data into smaller groups based on feature-based rules. Each internal node represents a decision point that aims to create purer groups concerning the target variable (aml-002).\n\n2. **Key Concepts**:\n   - **Entropy**: Measures the uncertainty in class labels at a node. High entropy indicates a balanced mix of classes, while low entropy indicates dominance of one class. Decision trees use information gain (the reduction in entropy) to determine the best splits (aml-004).\n   - **Gini Impurity**: This metric assesses how often a randomly chosen example would be incorrectly labeled if assigned a class label based on the distribution in a node. A pure node (all examples of one class) has a Gini impurity of 0. Decision trees can use Gini impurity to select splits that enhance class homogeneity in child nodes (aml-003).\n\n3. **Advantages**:\n   - Interpretable and easy to visualize.\n   - Capable of capturing nonlinear relationships in data.\n\n4. **Cautions**:\n   - Deep trees may overfit the training data, leading to poor generalization on unseen data (aml-002).\n\nThis guide summarizes the essential aspects of decision trees, including their structure, evaluation metrics, and practical considerations. For further details, refer to the course materials: aml-002, aml-003, aml-004.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "decision trees",
+          "num_results": 5
+        },
+        "result_count": 3,
+        "result_ids": [
+          "aml-002",
+          "aml-004",
+          "aml-003"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-002"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-004"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-003"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-003",
+    "question": "Answer briefly: Why can accuracy be misleading for an imbalanced classification dataset?",
+    "base_question": "Why can accuracy be misleading for an imbalanced classification dataset?",
+    "expected_material_ids": [
+      "aml-008",
+      "aml-009"
+    ],
+    "category": "classification_metrics",
+    "final_answer": "Accuracy can be misleading in imbalanced classification datasets because it may reflect high performance by predominantly predicting the majority class. This can mask poor performance on the minority class, which is often the class of interest. Therefore, it's essential to consider other metrics like precision, recall, and F1 score to get a clearer picture of model performance (aml-009, aml-008).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "accuracy misleading imbalanced classification",
+          "num_results": 5
+        },
+        "result_count": 2,
+        "result_ids": [
+          "aml-009",
+          "aml-008"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-009"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-008"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-004",
+    "question": "Answer briefly: Can you explain convolutional neural networks using the course materials?",
+    "base_question": "Can you explain convolutional neural networks using the course materials?",
+    "expected_material_ids": [],
+    "category": "insufficient_materials",
+    "final_answer": "The current course materials are insufficient to answer this question using the course materials: Answer briefly: Can you explain convolutional neural networks using the course materials? To support this query, add relevant course notes, slides, or readings to the knowledge base.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "convolutional neural networks",
+          "num_results": 5
+        },
+        "result_count": 0,
+        "result_ids": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-005",
+    "question": "Explain for a beginner: When should I use MAE instead of MSE in a regression problem?",
+    "base_question": "When should I use MAE instead of MSE in a regression problem?",
+    "expected_material_ids": [
+      "aml-001"
+    ],
+    "category": "regression_metrics",
+    "final_answer": "In regression problems, you might choose between Mean Absolute Error (MAE) and Mean Squared Error (MSE) based on your specific needs:\n\n- **Use MAE** when you want an evaluation metric that is easy to interpret in the target units and is less sensitive to outliers. This means that each error contributes linearly, making it straightforward to understand the average error in the same units as your predictions.\n\n- **Use MSE** when large errors are particularly costly or when you want to strongly penalize big mistakes. MSE squares the errors, which means that larger errors have a disproportionately larger impact on the overall metric.\n\nIn summary, if you want a robust measure that treats all errors equally, go for MAE. If you need to emphasize larger errors, MSE is the better choice (aml-001).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "MAE vs MSE",
+          "num_results": 5
+        },
+        "result_count": 1,
+        "result_ids": [
+          "aml-001"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-001"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-006",
+    "question": "Explain for a beginner: Give me a short study guide about decision trees.",
+    "base_question": "Give me a short study guide about decision trees.",
+    "expected_material_ids": [
+      "aml-002"
+    ],
+    "category": "decision_trees",
+    "final_answer": "Here's a short study guide on decision trees for beginners:\n\n### Decision Trees Overview\n- **Definition**: A decision tree is a model that makes predictions by splitting data into smaller groups based on feature-based rules. Each internal node represents a decision point, and branches represent the outcomes of those decisions.\n\n### Key Concepts\n1. **Splitting**:\n   - The tree splits the data at each node to create groups that are more \"pure\" concerning the target variable. A pure group contains instances of only one class.\n\n2. **Purity Measures**:\n   - **Entropy**: Measures the uncertainty in class labels at a node. High entropy indicates a balanced mix of classes, while low entropy indicates that one class dominates. Decision trees use information gain (the reduction in entropy after a split) to determine the best feature to split on (aml-004).\n   - **Gini Impurity**: Measures the likelihood of mislabeling a randomly chosen example. A Gini impurity of 0 means the node is pure (all examples belong to one class). Decision trees can use Gini impurity to select splits that lead to more homogeneous child nodes (aml-003).\n\n### Advantages and Disadvantages\n- **Advantages**:\n  - **Interpretable**: Easy to understand and visualize.\n  - **Nonlinear Relationships**: Can capture complex relationships in the data.\n\n- **Disadvantages**:\n  - **Overfitting**: Deep trees can model noise in the training data, leading to poor generalization on unseen data (aml-002).\n\n### Conclusion\nDecision trees are a powerful tool in supervised learning, providing a clear method for making predictions based on data features. Understanding how they work, including the concepts of entropy and Gini impurity, is crucial for effectively using them in machine learning tasks.\n\nFor more detailed information, refer to the materials: [Decision Trees](aml-002), [Entropy](aml-004), and [Gini Impurity](aml-003).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "decision trees",
+          "num_results": 5
+        },
+        "result_count": 3,
+        "result_ids": [
+          "aml-002",
+          "aml-004",
+          "aml-003"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-002"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-004"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-003"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-007",
+    "question": "Explain for a beginner: Why can accuracy be misleading for an imbalanced classification dataset?",
+    "base_question": "Why can accuracy be misleading for an imbalanced classification dataset?",
+    "expected_material_ids": [
+      "aml-008",
+      "aml-009"
+    ],
+    "category": "classification_metrics",
+    "final_answer": "In imbalanced classification datasets, where one class is much more frequent than another, accuracy can be misleading. Here's why:\n\n1. **Majority Class Prediction**: A model might predict the majority class most of the time. For example, if 90% of the data belongs to one class, a model that always predicts this class would achieve 90% accuracy, even if it fails to identify any instances of the minority class.\n\n2. **Hidden Poor Performance**: While accuracy measures the fraction of correct predictions, it can obscure the model's poor performance on the minority class. This means that even if the accuracy is high, the model might not be effectively identifying the less frequent class.\n\n3. **Alternative Metrics**: To better evaluate performance in such cases, it's important to look at other metrics like precision, recall, and the F1 score. These metrics provide a more nuanced view of how well the model is performing, especially regarding the minority class.\n\nFor instance, precision tells us how many of the predicted positive cases were actually positive, while recall indicates how many actual positive cases were identified by the model. The F1 score combines both precision and recall, making it useful when both false positives and false negatives are important (aml-009, aml-008). \n\nIn summary, relying solely on accuracy in imbalanced datasets can lead to a false sense of success, so it's crucial to consider additional evaluation metrics.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "accuracy misleading imbalanced classification",
+          "num_results": 5
+        },
+        "result_count": 2,
+        "result_ids": [
+          "aml-009",
+          "aml-008"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-009"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-008"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-008",
+    "question": "Explain for a beginner: Can you explain convolutional neural networks using the course materials?",
+    "base_question": "Can you explain convolutional neural networks using the course materials?",
+    "expected_material_ids": [],
+    "category": "insufficient_materials",
+    "final_answer": "The current course materials are insufficient to answer this question using the course materials: Explain for a beginner: Can you explain convolutional neural networks using the course materials? To support this query, add relevant course notes, slides, or readings to the knowledge base.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "convolutional neural networks",
+          "num_results": 5
+        },
+        "result_count": 0,
+        "result_ids": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-009",
+    "question": "Create a concise classroom answer: When should I use MAE instead of MSE in a regression problem?",
+    "base_question": "When should I use MAE instead of MSE in a regression problem?",
+    "expected_material_ids": [
+      "aml-001"
+    ],
+    "category": "regression_metrics",
+    "final_answer": "You should use Mean Absolute Error (MAE) instead of Mean Squared Error (MSE) when you want an evaluation metric that is easy to interpret in the target units and is less sensitive to outliers. MAE averages the absolute size of prediction errors, treating each error linearly. In contrast, MSE squares the errors, giving more weight to larger mistakes, which is useful when large errors are particularly costly (aml-001).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "MAE vs MSE",
+          "num_results": 5
+        },
+        "result_count": 1,
+        "result_ids": [
+          "aml-001"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-001"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-010",
+    "question": "Create a concise classroom answer: Give me a short study guide about decision trees.",
+    "base_question": "Give me a short study guide about decision trees.",
+    "expected_material_ids": [
+      "aml-002"
+    ],
+    "category": "decision_trees",
+    "final_answer": "### Study Guide: Decision Trees\n\n1. **Definition**:\n   - A decision tree is a predictive model that makes decisions by splitting data into smaller groups based on feature-based rules. Each internal node represents a decision point that aims to create purer groups concerning the target variable (aml-002).\n\n2. **Key Concepts**:\n   - **Entropy**: Measures the uncertainty in class labels at a node. High entropy indicates a balanced mix of classes, while low entropy suggests dominance of one class. Decision trees use information gain (the reduction in entropy) to determine the best splits (aml-004).\n   - **Gini Impurity**: This metric assesses how often a randomly chosen example would be incorrectly labeled if assigned a class label based on the distribution in a node. A pure node (all examples of one class) has a Gini impurity of 0. Decision trees can utilize Gini impurity to select splits that enhance class homogeneity in child nodes (aml-003).\n\n3. **Advantages**:\n   - Interpretable and easy to visualize.\n   - Capable of capturing nonlinear relationships in data.\n\n4. **Cautions**:\n   - Deep trees may overfit the training data, leading to poor generalization on unseen data (aml-002).\n\nThis guide summarizes the essential aspects of decision trees, including their structure, evaluation metrics, and practical considerations.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "decision trees",
+          "num_results": 5
+        },
+        "result_count": 3,
+        "result_ids": [
+          "aml-002",
+          "aml-004",
+          "aml-003"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-002"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-004"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-003"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-011",
+    "question": "Create a concise classroom answer: Why can accuracy be misleading for an imbalanced classification dataset?",
+    "base_question": "Why can accuracy be misleading for an imbalanced classification dataset?",
+    "expected_material_ids": [
+      "aml-008",
+      "aml-009"
+    ],
+    "category": "classification_metrics",
+    "final_answer": "Accuracy can be misleading in imbalanced classification datasets because it may reflect high performance by predominantly predicting the majority class. For instance, if a model predicts the majority class most of the time, it can achieve high accuracy while failing to identify the minority class effectively. Therefore, it's essential to consider other metrics like precision, recall, and F1 score to get a clearer picture of model performance on both classes (aml-009, aml-008).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "accuracy misleading imbalanced classification",
+          "num_results": 5
+        },
+        "result_count": 2,
+        "result_ids": [
+          "aml-009",
+          "aml-008"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-009"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-008"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-012",
+    "question": "Create a concise classroom answer: Can you explain convolutional neural networks using the course materials?",
+    "base_question": "Can you explain convolutional neural networks using the course materials?",
+    "expected_material_ids": [],
+    "category": "insufficient_materials",
+    "final_answer": "The current course materials are insufficient to answer this question using the course materials: Create a concise classroom answer: Can you explain convolutional neural networks using the course materials? To support this query, add relevant course notes, slides, or readings to the knowledge base.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "convolutional neural networks",
+          "num_results": 5
+        },
+        "result_count": 0,
+        "result_ids": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-013",
+    "question": "What should a student remember about this? When should I use MAE instead of MSE in a regression problem?",
+    "base_question": "When should I use MAE instead of MSE in a regression problem?",
+    "expected_material_ids": [
+      "aml-001"
+    ],
+    "category": "regression_metrics",
+    "final_answer": "In the context of regression problems, here are key points to remember about using Mean Absolute Error (MAE) and Mean Squared Error (MSE):\n\n1. **MAE**:\n   - Averages the absolute size of prediction errors, contributing linearly to the total error.\n   - It is easy to interpret in the target units.\n   - Less sensitive to outliers, making it a good choice when you want a robust evaluation metric.\n\n2. **MSE**:\n   - Averages squared errors, which means larger mistakes receive significantly more weight.\n   - It is useful when large errors are particularly costly or when you want to penalize big misses more heavily during training and evaluation.\n\n**When to Use**:\n- Use **MAE** when you prefer a metric that is straightforward and less affected by outliers.\n- Use **MSE** when you want to emphasize larger errors and are willing to incur a higher penalty for them (aml-001).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "MAE vs MSE regression",
+          "num_results": 5
+        },
+        "result_count": 1,
+        "result_ids": [
+          "aml-001"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-001"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-014",
+    "question": "What should a student remember about this? Give me a short study guide about decision trees.",
+    "base_question": "Give me a short study guide about decision trees.",
+    "expected_material_ids": [
+      "aml-002"
+    ],
+    "category": "decision_trees",
+    "final_answer": "Here's a short study guide on decision trees based on the course materials:\n\n### Decision Trees Study Guide\n\n1. **Definition**:\n   - A decision tree is a model that makes predictions by splitting data into smaller groups using feature-based rules. Each internal node represents a decision point that aims to create more homogeneous groups concerning the target variable (aml-002).\n\n2. **Key Concepts**:\n   - **Entropy**:\n     - A measure of uncertainty in class labels at a node. High entropy indicates a balanced mix of classes, while low entropy indicates that one class predominates. Decision trees use information gain (the reduction in entropy) to determine the best feature and threshold for splitting (aml-004).\n   \n   - **Gini Impurity**:\n     - This metric assesses how often a randomly chosen example would be incorrectly labeled if assigned a class label based on the distribution in a node. A node is considered pure (Gini impurity of 0) when all examples belong to one class. Decision trees can use Gini impurity to select splits that enhance class homogeneity in child nodes (aml-003).\n\n3. **Advantages**:\n   - Decision trees are interpretable and can capture nonlinear relationships in data. They provide a clear visual representation of decision-making processes (aml-002).\n\n4. **Cautions**:\n   - Deep trees can lead to overfitting, where the model performs well on training data but poorly on unseen data (aml-002).\n\n### References\n- For more details, refer to the materials: \n  - Decision Trees (aml-002)\n  - Entropy (aml-004)\n  - Gini Impurity (aml-003)\n\nThis guide should help you grasp the essential aspects of decision trees for your studies!",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "decision trees",
+          "num_results": 5
+        },
+        "result_count": 3,
+        "result_ids": [
+          "aml-002",
+          "aml-004",
+          "aml-003"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-002"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-004"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-003"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-015",
+    "question": "What should a student remember about this? Why can accuracy be misleading for an imbalanced classification dataset?",
+    "base_question": "Why can accuracy be misleading for an imbalanced classification dataset?",
+    "expected_material_ids": [
+      "aml-008",
+      "aml-009"
+    ],
+    "category": "classification_metrics",
+    "final_answer": "Students should remember that in imbalanced classification datasets, accuracy can be misleading. This is because a model might predominantly predict the majority class, leading to a high accuracy rate while failing to effectively identify the minority class. \n\nKey points to consider include:\n\n1. **Misleading Accuracy**: A model can achieve high accuracy by mostly predicting the majority class, which does not reflect its performance on the minority class (aml-009).\n\n2. **Alternative Metrics**: Instead of relying solely on accuracy, it's important to evaluate models using precision, recall, and the F1 score. These metrics provide a more nuanced view of model performance, especially in cases where the minority class is of particular interest (aml-008).\n\n3. **Performance Inspection**: Tools like confusion matrices can help visualize performance across different classes, allowing for a better understanding of where the model may be lacking (aml-009).\n\n4. **Resampling Techniques**: Depending on the specific goals of the analysis, techniques such as resampling or applying class weights can help improve model performance on imbalanced datasets (aml-009). \n\nBy focusing on these aspects, students can better assess model performance in imbalanced classification scenarios.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "accuracy misleading imbalanced classification",
+          "num_results": 5
+        },
+        "result_count": 2,
+        "result_ids": [
+          "aml-009",
+          "aml-008"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-009"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-008"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-016",
+    "question": "What should a student remember about this? Can you explain convolutional neural networks using the course materials?",
+    "base_question": "Can you explain convolutional neural networks using the course materials?",
+    "expected_material_ids": [],
+    "category": "insufficient_materials",
+    "final_answer": "The current course materials are insufficient to answer this question using the course materials: What should a student remember about this? Can you explain convolutional neural networks using the course materials? To support this query, add relevant course notes, slides, or readings to the knowledge base.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "convolutional neural networks",
+          "num_results": 5
+        },
+        "result_count": 0,
+        "result_ids": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-017",
+    "question": "Give one practical takeaway: When should I use MAE instead of MSE in a regression problem?",
+    "base_question": "When should I use MAE instead of MSE in a regression problem?",
+    "expected_material_ids": [
+      "aml-001"
+    ],
+    "category": "regression_metrics",
+    "final_answer": "A practical takeaway is to use Mean Absolute Error (MAE) when you want an evaluation metric that is easy to interpret in the target units and is less sensitive to outliers. In contrast, Mean Squared Error (MSE) should be used when large errors are particularly costly or when you want to strongly penalize big misses during training and evaluation (aml-001).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "MAE vs MSE",
+          "num_results": 5
+        },
+        "result_count": 1,
+        "result_ids": [
+          "aml-001"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-001"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-018",
+    "question": "Give one practical takeaway: Give me a short study guide about decision trees.",
+    "base_question": "Give me a short study guide about decision trees.",
+    "expected_material_ids": [
+      "aml-002"
+    ],
+    "category": "decision_trees",
+    "final_answer": "### Study Guide: Decision Trees\n\n**1. Definition and Functionality:**\n   - A decision tree is a predictive model that makes decisions based on feature-based rules by splitting data into smaller groups. Each internal node represents a decision point that aims to create more homogeneous groups concerning the target variable (aml-002).\n\n**2. Key Concepts:**\n   - **Entropy:** This measures the uncertainty in class labels at a node. High entropy indicates a balanced mix of classes, while low entropy suggests that one class predominates. Decision trees utilize information gain, which is the reduction in entropy after a split, to determine the best feature and threshold for splitting (aml-004).\n   - **Gini Impurity:** This metric assesses how often a randomly chosen example would be incorrectly labeled if assigned a class label based on the distribution in a node. A node is considered pure (Gini impurity of 0) when all examples belong to a single class. Decision trees can use Gini impurity to select splits that enhance class homogeneity in child nodes (aml-003).\n\n**3. Practical Takeaway:**\n   - Decision trees are interpretable and can model nonlinear relationships effectively. However, caution is needed as deeper trees may overfit the training data, leading to poor generalization on unseen data (aml-002).\n\nThis guide provides a concise overview of decision trees, focusing on their structure, key metrics, and practical implications in machine learning.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "decision trees",
+          "num_results": 5
+        },
+        "result_count": 3,
+        "result_ids": [
+          "aml-002",
+          "aml-004",
+          "aml-003"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-002"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-004"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-003"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-019",
+    "question": "Give one practical takeaway: Why can accuracy be misleading for an imbalanced classification dataset?",
+    "base_question": "Why can accuracy be misleading for an imbalanced classification dataset?",
+    "expected_material_ids": [
+      "aml-008",
+      "aml-009"
+    ],
+    "category": "classification_metrics",
+    "final_answer": "A practical takeaway regarding why accuracy can be misleading for an imbalanced classification dataset is that a model may achieve high accuracy by predominantly predicting the majority class. This can create an illusion of success, even if the model performs poorly on the minority class. Therefore, it's essential to evaluate additional metrics such as precision, recall, and the F1 score to get a more comprehensive understanding of model performance (aml-009, aml-008).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "accuracy misleading imbalanced classification",
+          "num_results": 5
+        },
+        "result_count": 2,
+        "result_ids": [
+          "aml-009",
+          "aml-008"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-009"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-008"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-020",
+    "question": "Give one practical takeaway: Can you explain convolutional neural networks using the course materials?",
+    "base_question": "Can you explain convolutional neural networks using the course materials?",
+    "expected_material_ids": [],
+    "category": "insufficient_materials",
+    "final_answer": "The current course materials are insufficient to answer this question using the course materials: Give one practical takeaway: Can you explain convolutional neural networks using the course materials? To support this query, add relevant course notes, slides, or readings to the knowledge base.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "convolutional neural networks",
+          "num_results": 5
+        },
+        "result_count": 0,
+        "result_ids": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-021",
+    "question": "Use the course materials to answer: When should I use MAE instead of MSE in a regression problem?",
+    "base_question": "When should I use MAE instead of MSE in a regression problem?",
+    "expected_material_ids": [
+      "aml-001"
+    ],
+    "category": "regression_metrics",
+    "final_answer": "You should use Mean Absolute Error (MAE) instead of Mean Squared Error (MSE) in a regression problem when you want an evaluation metric that is easy to interpret in the target units and is less sensitive to outliers. MAE averages the absolute size of prediction errors, meaning each error contributes linearly.\n\nIn contrast, MSE averages squared errors, which means that large mistakes receive much more weight. Therefore, MSE is more appropriate when large errors are especially costly or when you want the training and evaluation process to strongly penalize big misses (aml-001).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "MAE vs MSE regression",
+          "num_results": 5
+        },
+        "result_count": 1,
+        "result_ids": [
+          "aml-001"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-001"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-022",
+    "question": "Use the course materials to answer: Give me a short study guide about decision trees.",
+    "base_question": "Give me a short study guide about decision trees.",
+    "expected_material_ids": [
+      "aml-002"
+    ],
+    "category": "decision_trees",
+    "final_answer": "### Study Guide: Decision Trees\n\n**1. Overview of Decision Trees**\n- A decision tree is a predictive model that makes decisions based on feature-based rules by repeatedly splitting the data into smaller groups.\n- At each internal node, the tree selects a split that enhances the purity of the resulting groups concerning the target variable.\n- They are interpretable and can capture nonlinear relationships, but deep trees may overfit the training data. (Source: aml-002)\n\n**2. Key Concepts**\n- **Entropy**: \n  - A measure of uncertainty in the class labels at a node. \n  - High entropy indicates a balanced mix of classes, while low entropy suggests that a node predominantly contains one class.\n  - Decision trees utilize information gain, which is the reduction in entropy after a split, to determine the most effective feature and threshold for splitting. (Source: aml-004)\n\n- **Gini Impurity**: \n  - This metric assesses how often a randomly chosen example would be incorrectly labeled if assigned a class label based on the class distribution in a node.\n  - A node is considered pure when all examples belong to a single class, resulting in a Gini impurity of 0.\n  - Decision trees can use Gini impurity to select splits that lead to more homogeneous child nodes. (Source: aml-003)\n\n**3. Applications**\n- Decision trees are widely used in classification and regression tasks due to their simplicity and interpretability.\n\n**4. Limitations**\n- While they are powerful, decision trees can easily overfit the training data, especially when they are deep.\n\nThis guide summarizes the essential aspects of decision trees, including their structure, key metrics for evaluating splits, and their advantages and limitations. For further details, refer to the course materials: aml-002, aml-003, and aml-004.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "decision trees",
+          "num_results": 5
+        },
+        "result_count": 3,
+        "result_ids": [
+          "aml-002",
+          "aml-004",
+          "aml-003"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-002"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-004"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-003"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-023",
+    "question": "Use the course materials to answer: Why can accuracy be misleading for an imbalanced classification dataset?",
+    "base_question": "Why can accuracy be misleading for an imbalanced classification dataset?",
+    "expected_material_ids": [
+      "aml-008",
+      "aml-009"
+    ],
+    "category": "classification_metrics",
+    "final_answer": "Accuracy can be misleading for imbalanced classification datasets because it primarily reflects the performance on the majority class. In such cases, a model might achieve high accuracy by predominantly predicting the majority class, while failing to correctly identify instances of the minority class. This can create a false sense of success, as the model's performance on the minority class may be poor.\n\nFor a more comprehensive evaluation, it's essential to consider other metrics such as precision, recall, and the F1 score, which provide insights into the model's performance on both classes. These metrics help to assess how well the model identifies true positives and minimizes false positives and negatives, which is crucial in imbalanced scenarios (aml-009, aml-008).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "accuracy misleading imbalanced classification",
+          "num_results": 5
+        },
+        "result_count": 2,
+        "result_ids": [
+          "aml-009",
+          "aml-008"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-009"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-008"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-024",
+    "question": "Use the course materials to answer: Can you explain convolutional neural networks using the course materials?",
+    "base_question": "Can you explain convolutional neural networks using the course materials?",
+    "expected_material_ids": [],
+    "category": "insufficient_materials",
+    "final_answer": "The current course materials are insufficient to answer this question using the course materials: Use the course materials to answer: Can you explain convolutional neural networks using the course materials? To support this query, add relevant course notes, slides, or readings to the knowledge base.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "convolutional neural networks",
+          "num_results": 5
+        },
+        "result_count": 0,
+        "result_ids": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-025",
+    "question": "Make this exam-review friendly: When should I use MAE instead of MSE in a regression problem?",
+    "base_question": "When should I use MAE instead of MSE in a regression problem?",
+    "expected_material_ids": [
+      "aml-001"
+    ],
+    "category": "regression_metrics",
+    "final_answer": "### When to Use MAE vs. MSE in Regression\n\n- **Mean Absolute Error (MAE)**:\n  - Averages the absolute size of prediction errors.\n  - Each error contributes linearly.\n  - **Use MAE when**:\n    - You want an evaluation metric that is easy to interpret in the target units.\n    - You need a metric that is less sensitive to outliers.\n\n- **Mean Squared Error (MSE)**:\n  - Averages squared errors.\n  - Large mistakes receive much more weight.\n  - **Use MSE when**:\n    - Large errors are especially costly.\n    - You want to strongly penalize big misses during training and evaluation.\n\nThis distinction helps in choosing the right metric based on the specific needs of your regression problem (aml-001).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "MAE vs MSE regression",
+          "num_results": 5
+        },
+        "result_count": 1,
+        "result_ids": [
+          "aml-001"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-001"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-026",
+    "question": "Make this exam-review friendly: Give me a short study guide about decision trees.",
+    "base_question": "Give me a short study guide about decision trees.",
+    "expected_material_ids": [
+      "aml-002"
+    ],
+    "category": "decision_trees",
+    "final_answer": "### Study Guide: Decision Trees\n\n#### Overview\n- **Definition**: A decision tree is a model that makes predictions by splitting data into smaller groups based on feature-based rules. Each internal node represents a decision point that aims to create purer groups concerning the target variable.\n\n#### Key Concepts\n\n1. **Splitting Criteria**:\n   - **Entropy**: Measures the uncertainty in class labels at a node.\n     - High entropy indicates a balanced mix of classes.\n     - Low entropy indicates that the node mostly contains one class.\n     - Decision trees use **information gain** (the reduction in entropy after a split) to determine the best feature and threshold for splitting (aml-004).\n\n   - **Gini Impurity**: Measures the likelihood of mislabeling a randomly chosen example based on the class distribution in a node.\n     - A node is pure (Gini impurity = 0) when all examples belong to one class.\n     - Decision trees can use Gini impurity to select splits that enhance class homogeneity in child nodes (aml-003).\n\n2. **Advantages**:\n   - **Interpretability**: Decision trees are easy to understand and visualize.\n   - **Nonlinear Relationships**: They can capture complex relationships between features and the target variable.\n\n3. **Disadvantages**:\n   - **Overfitting**: Deep trees can model noise in the training data, leading to poor generalization on unseen data (aml-002).\n\n#### Summary\nDecision trees are powerful tools in supervised learning, leveraging criteria like entropy and Gini impurity to make informed splits. Understanding these concepts is crucial for effectively using decision trees in machine learning applications.\n\n---\n\nFor further details, refer to the course materials: \n- Decision Trees (aml-002)\n- Entropy (aml-004)\n- Gini Impurity (aml-003)",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "decision trees",
+          "num_results": 5
+        },
+        "result_count": 3,
+        "result_ids": [
+          "aml-002",
+          "aml-004",
+          "aml-003"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-002"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-004"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-003"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-027",
+    "question": "Make this exam-review friendly: Why can accuracy be misleading for an imbalanced classification dataset?",
+    "base_question": "Why can accuracy be misleading for an imbalanced classification dataset?",
+    "expected_material_ids": [
+      "aml-008",
+      "aml-009"
+    ],
+    "category": "classification_metrics",
+    "final_answer": "### Exam Review: Why Accuracy Can Be Misleading for Imbalanced Classification Datasets\n\n1. **Definition of Accuracy**: \n   - Accuracy is the fraction of correct predictions made by the model. While it seems like a straightforward metric, it can be deceptive in certain scenarios, particularly with imbalanced datasets.\n\n2. **Imbalanced Classes**:\n   - In imbalanced classification, one class (the majority class) appears much more frequently than the other (the minority class). For example, if 90% of your data belongs to one class and only 10% to another, a model that predicts only the majority class can still achieve high accuracy.\n\n3. **Misleading Success**:\n   - A model may achieve high accuracy by predominantly predicting the majority class, thus failing to identify the minority class effectively. This can lead to a false sense of success, as the model may not be performing well where it truly matters.\n\n4. **Alternative Metrics**:\n   - To get a clearer picture of model performance, especially in imbalanced scenarios, it's essential to look at other metrics:\n     - **Precision**: Measures how many of the predicted positive cases are actually positive.\n     - **Recall**: Measures how many actual positive cases were correctly identified by the model.\n     - **F1 Score**: Combines precision and recall into a single metric, which is particularly useful when both false positives and false negatives are important.\n\n5. **Recommendations**:\n   - For imbalanced problems, consider using confusion matrices and class-specific performance metrics. Techniques like resampling or applying class weights can also help improve model performance on minority classes.\n\n### References:\n- For more details, refer to materials **aml-009** and **aml-008**.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "accuracy misleading imbalanced classification",
+          "num_results": 5
+        },
+        "result_count": 2,
+        "result_ids": [
+          "aml-009",
+          "aml-008"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-009"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-008"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-028",
+    "question": "Make this exam-review friendly: Can you explain convolutional neural networks using the course materials?",
+    "base_question": "Can you explain convolutional neural networks using the course materials?",
+    "expected_material_ids": [],
+    "category": "insufficient_materials",
+    "final_answer": "The current course materials are insufficient to answer this question using the course materials: Make this exam-review friendly: Can you explain convolutional neural networks using the course materials? To support this query, add relevant course notes, slides, or readings to the knowledge base.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "convolutional neural networks",
+          "num_results": 5
+        },
+        "result_count": 0,
+        "result_ids": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-029",
+    "question": "What is the most important distinction? When should I use MAE instead of MSE in a regression problem?",
+    "base_question": "When should I use MAE instead of MSE in a regression problem?",
+    "expected_material_ids": [
+      "aml-001"
+    ],
+    "category": "regression_metrics",
+    "final_answer": "The most important distinction between Mean Absolute Error (MAE) and Mean Squared Error (MSE) lies in how they treat prediction errors:\n\n- **MAE** averages the absolute size of prediction errors, meaning each error contributes linearly. It is easier to interpret in the target units and is less sensitive to outliers.\n- **MSE** averages squared errors, which means that larger mistakes receive significantly more weight. This makes MSE suitable when large errors are particularly costly or when you want to strongly penalize big misses during training and evaluation.\n\nIn summary, use **MAE** when you prefer a metric that is straightforward and robust to outliers, and use **MSE** when large errors are more critical to your application (aml-001).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "MAE MSE distinction regression",
+          "num_results": 5
+        },
+        "result_count": 1,
+        "result_ids": [
+          "aml-001"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-001"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-030",
+    "question": "What is the most important distinction? Give me a short study guide about decision trees.",
+    "base_question": "Give me a short study guide about decision trees.",
+    "expected_material_ids": [
+      "aml-002"
+    ],
+    "category": "decision_trees",
+    "final_answer": "### Study Guide: Decision Trees\n\n**1. Definition:**\n   - A decision tree is a model that makes predictions by repeatedly splitting the data into smaller groups based on feature-based rules. At each internal node, the tree selects a split that enhances the purity of the resulting groups concerning the target variable (aml-002).\n\n**2. Key Concepts:**\n   - **Entropy:**\n     - A measure of uncertainty in the class labels at a node. High entropy indicates a balanced mix of classes, while low entropy indicates that a node predominantly contains one class. Decision trees utilize information gain, which is the reduction in entropy after a split, to determine the most effective feature and threshold for splitting (aml-004).\n   \n   - **Gini Impurity:**\n     - This metric assesses how often a randomly chosen example would be incorrectly labeled if assigned a class label based on the class distribution in a node. A node is considered pure when all examples belong to a single class, resulting in a Gini impurity of 0. Decision trees can use Gini impurity to select splits that lead to more homogeneous child nodes (aml-003).\n\n**3. Advantages:**\n   - **Interpretability:** Decision trees are easy to understand and interpret.\n   - **Nonlinear Relationships:** They can capture complex nonlinear relationships in the data.\n\n**4. Disadvantages:**\n   - **Overfitting:** Deep trees can overfit the training data, leading to poor generalization on unseen data (aml-002).\n\n### Important Distinction:\nThe most important distinction in decision trees lies in the criteria used for splitting nodes: **Entropy** and **Gini impurity**. Both aim to create pure child nodes but use different calculations to measure impurity and make decisions on splits.\n\n### References:\n- Decision Trees Overview: [aml-002]\n- Entropy in Decision Trees: [aml-004]\n- Gini Impurity in Decision Trees: [aml-003]",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "decision trees",
+          "num_results": 5
+        },
+        "result_count": 3,
+        "result_ids": [
+          "aml-002",
+          "aml-004",
+          "aml-003"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-002"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-004"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-003"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-031",
+    "question": "What is the most important distinction? Why can accuracy be misleading for an imbalanced classification dataset?",
+    "base_question": "Why can accuracy be misleading for an imbalanced classification dataset?",
+    "expected_material_ids": [
+      "aml-008",
+      "aml-009"
+    ],
+    "category": "classification_metrics",
+    "final_answer": "The most important distinction in evaluating models on imbalanced classification datasets is that accuracy can be misleading. In such datasets, one class is significantly more frequent than the other. A model might achieve high accuracy by predominantly predicting the majority class, which does not reflect its performance on the minority class.\n\n1. **Misleading Accuracy**: A model can appear successful by simply predicting the majority class most of the time, leading to high accuracy but poor performance on the minority class (aml-009).\n\n2. **Alternative Metrics**: Instead of relying solely on accuracy, it's crucial to consider other metrics such as precision, recall, and the F1 score. These metrics provide a more nuanced view of model performance, especially in scenarios where the minority class is of particular interest (aml-008).\n\nIn summary, while accuracy is a straightforward measure, it can obscure the true effectiveness of a model in imbalanced scenarios, making it essential to use additional evaluation metrics.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "accuracy misleading imbalanced classification",
+          "num_results": 5
+        },
+        "result_count": 2,
+        "result_ids": [
+          "aml-009",
+          "aml-008"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-009"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-008"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-032",
+    "question": "What is the most important distinction? Can you explain convolutional neural networks using the course materials?",
+    "base_question": "Can you explain convolutional neural networks using the course materials?",
+    "expected_material_ids": [],
+    "category": "insufficient_materials",
+    "final_answer": "The current course materials are insufficient to answer this question using the course materials: What is the most important distinction? Can you explain convolutional neural networks using the course materials? To support this query, add relevant course notes, slides, or readings to the knowledge base.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "convolutional neural networks",
+          "num_results": 5
+        },
+        "result_count": 0,
+        "result_ids": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-033",
+    "question": "Give a short explanation with citations: When should I use MAE instead of MSE in a regression problem?",
+    "base_question": "When should I use MAE instead of MSE in a regression problem?",
+    "expected_material_ids": [
+      "aml-001"
+    ],
+    "category": "regression_metrics",
+    "final_answer": "You should use Mean Absolute Error (MAE) instead of Mean Squared Error (MSE) in a regression problem when you want an evaluation metric that is easy to interpret in the target units and is less sensitive to outliers. MAE averages the absolute size of prediction errors, meaning each error contributes linearly. In contrast, MSE averages squared errors, which gives more weight to larger mistakes. Therefore, if large errors are particularly costly or if you want to penalize big misses more heavily, MSE would be more appropriate (aml-001).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "MAE vs MSE",
+          "num_results": 5
+        },
+        "result_count": 1,
+        "result_ids": [
+          "aml-001"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-001"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-034",
+    "question": "Give a short explanation with citations: Give me a short study guide about decision trees.",
+    "base_question": "Give me a short study guide about decision trees.",
+    "expected_material_ids": [
+      "aml-002"
+    ],
+    "category": "decision_trees",
+    "final_answer": "### Study Guide: Decision Trees\n\n**Overview:**\nA decision tree is a predictive model that makes decisions based on a series of feature-based rules. It works by recursively splitting the data into smaller groups to improve the purity of the resulting subsets concerning the target variable.\n\n**Key Concepts:**\n\n1. **Structure of Decision Trees:**\n   - Decision trees consist of nodes (decision points) and leaves (outcomes). At each internal node, the tree selects a feature and a threshold to split the data, aiming to create groups that are more homogeneous regarding the target variable (aml-002).\n\n2. **Purity Measures:**\n   - **Entropy:** This measures the uncertainty in the class labels at a node. High entropy indicates a balanced mix of classes, while low entropy suggests that the node predominantly contains one class. Decision trees utilize information gain, which is the reduction in entropy after a split, to determine the best feature and threshold for splitting (aml-004).\n   - **Gini Impurity:** This metric assesses how often a randomly chosen example would be incorrectly labeled if assigned a class label based on the distribution in a node. A node is considered pure when all examples belong to a single class, resulting in a Gini impurity of 0. Decision trees can use Gini impurity to select splits that enhance class homogeneity in child nodes (aml-003).\n\n3. **Advantages and Disadvantages:**\n   - **Advantages:** Decision trees are interpretable and can capture nonlinear relationships in the data.\n   - **Disadvantages:** They are prone to overfitting, especially when the trees are deep (aml-002).\n\nThis guide provides a concise overview of decision trees, focusing on their structure, key metrics for evaluating splits, and their pros and cons. For further details, refer to the respective materials: aml-002, aml-003, and aml-004.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "decision trees",
+          "num_results": 5
+        },
+        "result_count": 3,
+        "result_ids": [
+          "aml-002",
+          "aml-004",
+          "aml-003"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-002"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-004"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-003"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-035",
+    "question": "Give a short explanation with citations: Why can accuracy be misleading for an imbalanced classification dataset?",
+    "base_question": "Why can accuracy be misleading for an imbalanced classification dataset?",
+    "expected_material_ids": [
+      "aml-008",
+      "aml-009"
+    ],
+    "category": "classification_metrics",
+    "final_answer": "Accuracy can be misleading in imbalanced classification datasets because it may give a false sense of success. In such cases, one class is significantly more frequent than the other. A model could achieve high accuracy by predominantly predicting the majority class, while failing to correctly identify instances of the minority class. This can mask poor performance on the minority class, which is often the class of interest. Therefore, it's essential to consider other metrics like precision, recall, and the F1 score to get a more accurate picture of model performance (aml-009, aml-008).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "accuracy misleading imbalanced classification",
+          "num_results": 5
+        },
+        "result_count": 2,
+        "result_ids": [
+          "aml-009",
+          "aml-008"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-009"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-008"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-036",
+    "question": "Give a short explanation with citations: Can you explain convolutional neural networks using the course materials?",
+    "base_question": "Can you explain convolutional neural networks using the course materials?",
+    "expected_material_ids": [],
+    "category": "insufficient_materials",
+    "final_answer": "The current course materials are insufficient to answer this question using the course materials: Give a short explanation with citations: Can you explain convolutional neural networks using the course materials? To support this query, add relevant course notes, slides, or readings to the knowledge base.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "convolutional neural networks",
+          "num_results": 5
+        },
+        "result_count": 0,
+        "result_ids": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-037",
+    "question": "Respond as an Applied ML teaching assistant: When should I use MAE instead of MSE in a regression problem?",
+    "base_question": "When should I use MAE instead of MSE in a regression problem?",
+    "expected_material_ids": [
+      "aml-001"
+    ],
+    "category": "regression_metrics",
+    "final_answer": "You should use Mean Absolute Error (MAE) instead of Mean Squared Error (MSE) in a regression problem when you want an evaluation metric that is easy to interpret in the target units and is less sensitive to outliers. MAE averages the absolute size of prediction errors, meaning each error contributes linearly.\n\nIn contrast, MSE averages squared errors, which means that larger mistakes receive significantly more weight. Therefore, MSE is more appropriate when large errors are particularly costly or when you want the training and evaluation process to strongly penalize big misses (aml-001).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "MAE vs MSE",
+          "num_results": 5
+        },
+        "result_count": 1,
+        "result_ids": [
+          "aml-001"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-001"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-038",
+    "question": "Respond as an Applied ML teaching assistant: Give me a short study guide about decision trees.",
+    "base_question": "Give me a short study guide about decision trees.",
+    "expected_material_ids": [
+      "aml-002"
+    ],
+    "category": "decision_trees",
+    "final_answer": "### Study Guide: Decision Trees\n\n**1. Overview of Decision Trees**\n- A decision tree is a predictive model that makes decisions based on feature-based rules by repeatedly splitting the data into smaller groups.\n- At each internal node, the tree selects a split that enhances the purity of the resulting groups concerning the target variable.\n- **Key Benefits**: Decision trees are interpretable and can capture nonlinear relationships. However, they are prone to overfitting, especially when they are deep (aml-002).\n\n**2. Key Concepts**\n- **Entropy**: \n  - A measure of uncertainty in the class labels at a node. \n  - High entropy indicates a balanced mix of classes, while low entropy suggests that the node predominantly contains one class.\n  - Decision trees utilize information gain, which is the reduction in entropy after a split, to determine the most effective feature and threshold for splitting (aml-004).\n\n- **Gini Impurity**: \n  - This metric assesses how often a randomly chosen example would be incorrectly labeled if assigned a class label based on the class distribution in a node.\n  - A node is considered pure when all examples belong to a single class, resulting in a Gini impurity of 0.\n  - Decision trees can use Gini impurity to select splits that lead to more homogeneous child nodes (aml-003).\n\n**3. Practical Considerations**\n- When constructing decision trees, it's essential to balance the depth of the tree to avoid overfitting while ensuring that the splits are meaningful and improve the model's predictive power.\n\nThis guide provides a concise overview of decision trees, focusing on their structure, key metrics, and practical implications. For further details, refer to the respective materials: aml-002, aml-004, and aml-003.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "decision trees",
+          "num_results": 5
+        },
+        "result_count": 3,
+        "result_ids": [
+          "aml-002",
+          "aml-004",
+          "aml-003"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-002"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-004"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-003"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-039",
+    "question": "Respond as an Applied ML teaching assistant: Why can accuracy be misleading for an imbalanced classification dataset?",
+    "base_question": "Why can accuracy be misleading for an imbalanced classification dataset?",
+    "expected_material_ids": [
+      "aml-008",
+      "aml-009"
+    ],
+    "category": "classification_metrics",
+    "final_answer": "Accuracy can be misleading in imbalanced classification datasets for several reasons:\n\n1. **Majority Class Dominance**: In imbalanced datasets, one class often appears much more frequently than the other. A model might achieve high accuracy simply by predicting the majority class most of the time, which does not reflect its performance on the minority class. For example, if 95% of the data belongs to one class, a model that predicts only that class can still achieve 95% accuracy while failing to identify any instances of the minority class (aml-009).\n\n2. **Hidden Poor Performance**: While accuracy measures the fraction of correct predictions, it can obscure the model's poor performance on minority classes. This is particularly problematic when the cost of misclassifying the minority class is high. Metrics such as precision, recall, and the F1 score provide a more nuanced view of model performance, especially when both false positives and false negatives are important (aml-008).\n\nFor imbalanced problems, it's recommended to use additional metrics like precision, recall, and F1 score, and to consider techniques such as resampling or applying class weights to improve model performance on the minority class (aml-009).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "accuracy misleading imbalanced classification",
+          "num_results": 5
+        },
+        "result_count": 2,
+        "result_ids": [
+          "aml-009",
+          "aml-008"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-009"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-008"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-040",
+    "question": "Respond as an Applied ML teaching assistant: Can you explain convolutional neural networks using the course materials?",
+    "base_question": "Can you explain convolutional neural networks using the course materials?",
+    "expected_material_ids": [],
+    "category": "insufficient_materials",
+    "final_answer": "The current course materials are insufficient to answer this question using the course materials: Respond as an Applied ML teaching assistant: Can you explain convolutional neural networks using the course materials? To support this query, add relevant course notes, slides, or readings to the knowledge base.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "convolutional neural networks",
+          "num_results": 5
+        },
+        "result_count": 0,
+        "result_ids": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-041",
+    "question": "Keep it grounded in the material: When should I use MAE instead of MSE in a regression problem?",
+    "base_question": "When should I use MAE instead of MSE in a regression problem?",
+    "expected_material_ids": [
+      "aml-001"
+    ],
+    "category": "regression_metrics",
+    "final_answer": "You should use Mean Absolute Error (MAE) instead of Mean Squared Error (MSE) in a regression problem when you want an evaluation metric that is easy to interpret in the target units and is less sensitive to outliers. MAE averages the absolute size of prediction errors, meaning each error contributes linearly.\n\nIn contrast, MSE averages squared errors, which means that larger mistakes receive significantly more weight. Therefore, MSE is more appropriate when large errors are particularly costly or when you want to strongly penalize big misses during the training and evaluation process (aml-001).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "MAE vs MSE regression",
+          "num_results": 5
+        },
+        "result_count": 1,
+        "result_ids": [
+          "aml-001"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-001"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-042",
+    "question": "Keep it grounded in the material: Give me a short study guide about decision trees.",
+    "base_question": "Give me a short study guide about decision trees.",
+    "expected_material_ids": [
+      "aml-002"
+    ],
+    "category": "decision_trees",
+    "final_answer": "### Study Guide: Decision Trees\n\n#### Overview\n- **Definition**: A decision tree is a predictive model that makes decisions based on feature-based rules by splitting data into smaller groups. Each internal node represents a decision point, and the goal is to create groups that are more homogeneous with respect to the target variable.\n\n#### Key Concepts\n\n1. **Splitting Criteria**:\n   - **Entropy**: Measures the uncertainty in class labels at a node. High entropy indicates a balanced mix of classes, while low entropy indicates that one class predominates. Decision trees use information gain (the reduction in entropy after a split) to determine the best feature and threshold for splitting (aml-004).\n   - **Gini Impurity**: This metric assesses how often a randomly chosen example would be incorrectly labeled if assigned a class label based on the distribution in a node. A node is considered pure (Gini impurity of 0) when all examples belong to one class. Decision trees can use Gini impurity to select splits that enhance class homogeneity in child nodes (aml-003).\n\n2. **Advantages**:\n   - **Interpretability**: Decision trees are easy to understand and visualize, making them accessible for interpretation.\n   - **Nonlinear Relationships**: They can capture complex relationships between features and the target variable.\n\n3. **Challenges**:\n   - **Overfitting**: Deep trees can model noise in the training data, leading to poor generalization on unseen data. Pruning techniques are often employed to mitigate this issue (aml-002).\n\n#### Conclusion\nDecision trees are a powerful tool in supervised learning, particularly for classification tasks. Understanding the concepts of entropy and Gini impurity is crucial for effectively utilizing decision trees in practice.\n\nFor further details, refer to the course materials: \n- Decision Trees (aml-002)\n- Entropy (aml-004)\n- Gini Impurity (aml-003)",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "decision trees",
+          "num_results": 5
+        },
+        "result_count": 3,
+        "result_ids": [
+          "aml-002",
+          "aml-004",
+          "aml-003"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-002"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-004"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-003"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-043",
+    "question": "Keep it grounded in the material: Why can accuracy be misleading for an imbalanced classification dataset?",
+    "base_question": "Why can accuracy be misleading for an imbalanced classification dataset?",
+    "expected_material_ids": [
+      "aml-008",
+      "aml-009"
+    ],
+    "category": "classification_metrics",
+    "final_answer": "Accuracy can be misleading in imbalanced classification datasets because it primarily reflects the performance on the majority class. In such cases, a model might achieve high accuracy by predominantly predicting the majority class, while failing to correctly identify instances of the minority class. This can create a false sense of success, as the model's performance on the minority class may be poor.\n\nFor instance, if a dataset has 95% of instances belonging to one class and only 5% to another, a model that predicts the majority class for all instances would still achieve 95% accuracy, despite not correctly identifying any instances of the minority class. Therefore, it's crucial to consider other metrics such as precision, recall, and the F1 score, which provide a more comprehensive view of model performance, especially in imbalanced scenarios (aml-009, aml-008).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "accuracy misleading imbalanced classification",
+          "num_results": 5
+        },
+        "result_count": 2,
+        "result_ids": [
+          "aml-009",
+          "aml-008"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-009"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-008"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-044",
+    "question": "Keep it grounded in the material: Can you explain convolutional neural networks using the course materials?",
+    "base_question": "Can you explain convolutional neural networks using the course materials?",
+    "expected_material_ids": [],
+    "category": "insufficient_materials",
+    "final_answer": "The current course materials are insufficient to answer this question using the course materials: Keep it grounded in the material: Can you explain convolutional neural networks using the course materials? To support this query, add relevant course notes, slides, or readings to the knowledge base.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "convolutional neural networks",
+          "num_results": 5
+        },
+        "result_count": 0,
+        "result_ids": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-045",
+    "question": "What would you tell a confused student? When should I use MAE instead of MSE in a regression problem?",
+    "base_question": "When should I use MAE instead of MSE in a regression problem?",
+    "expected_material_ids": [
+      "aml-001"
+    ],
+    "category": "regression_metrics",
+    "final_answer": "In a regression problem, you should consider using Mean Absolute Error (MAE) or Mean Squared Error (MSE) based on the context of your evaluation needs:\n\n- **Use MAE** when you want an evaluation metric that is easy to interpret in the target units and is less sensitive to outliers. This means that each error contributes linearly, making it straightforward to understand the average error in the same units as the target variable.\n\n- **Use MSE** when large errors are especially costly or when you want to strongly penalize big misses. MSE averages squared errors, which means that larger mistakes receive significantly more weight in the evaluation.\n\nThis distinction can help guide your choice depending on the specific requirements of your regression task (aml-001).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "MAE vs MSE",
+          "num_results": 5
+        },
+        "result_count": 1,
+        "result_ids": [
+          "aml-001"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-001"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-046",
+    "question": "What would you tell a confused student? Give me a short study guide about decision trees.",
+    "base_question": "Give me a short study guide about decision trees.",
+    "expected_material_ids": [
+      "aml-002"
+    ],
+    "category": "decision_trees",
+    "final_answer": "Here's a short study guide on decision trees based on the course materials:\n\n### Decision Trees Study Guide\n\n1. **Definition**:\n   - A decision tree is a model that makes predictions by splitting data into smaller groups based on feature-based rules. Each internal node represents a decision point, and the goal is to create groups that are more homogeneous with respect to the target variable (aml-002).\n\n2. **Key Concepts**:\n   - **Entropy**:\n     - A measure of uncertainty in class labels at a node. High entropy indicates a balanced mix of classes, while low entropy indicates that one class predominates. Decision trees use information gain (the reduction in entropy after a split) to determine the best feature and threshold for splitting (aml-004).\n   \n   - **Gini Impurity**:\n     - This metric assesses how often a randomly chosen example would be incorrectly labeled if assigned a class label based on the distribution in a node. A node is considered pure (Gini impurity of 0) when all examples belong to one class. Decision trees can use Gini impurity to select splits that enhance class homogeneity in child nodes (aml-003).\n\n3. **Advantages**:\n   - Decision trees are interpretable and can capture nonlinear relationships in data. However, they can overfit the training data if they are too deep (aml-002).\n\n### Tips for Studying:\n- Understand how to calculate entropy and Gini impurity.\n- Practice building decision trees using different datasets to see how splits are made.\n- Review examples of overfitting and how to mitigate it, such as through pruning.\n\nFeel free to ask if you need more details on any specific aspect!",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "decision trees",
+          "num_results": 5
+        },
+        "result_count": 3,
+        "result_ids": [
+          "aml-002",
+          "aml-004",
+          "aml-003"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-002"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-004"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-003"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-047",
+    "question": "What would you tell a confused student? Why can accuracy be misleading for an imbalanced classification dataset?",
+    "base_question": "Why can accuracy be misleading for an imbalanced classification dataset?",
+    "expected_material_ids": [
+      "aml-008",
+      "aml-009"
+    ],
+    "category": "classification_metrics",
+    "final_answer": "When explaining to a confused student why accuracy can be misleading for an imbalanced classification dataset, you can highlight the following points:\n\n1. **Imbalance in Classes**: In imbalanced classification, one class (usually the majority class) appears much more frequently than the other (minority class). This can lead to a situation where a model predicts the majority class most of the time, resulting in high accuracy even if it fails to correctly identify instances of the minority class (aml-009).\n\n2. **Hidden Performance Issues**: Accuracy is simply the fraction of correct predictions. However, it can mask poor performance on minority classes. For example, if a model predicts the majority class correctly but fails to predict any instances of the minority class, the accuracy might still look good, but the model is not performing well overall (aml-008).\n\n3. **Alternative Metrics**: Instead of relying solely on accuracy, it's important to consider other evaluation metrics such as precision, recall, and the F1 score. These metrics provide a more nuanced view of model performance, especially in cases where false positives and false negatives have significant implications (aml-009, aml-008).\n\nEncouraging the student to look at confusion matrices and class-specific performance can also help them understand the model's effectiveness in more detail.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "accuracy misleading imbalanced classification",
+          "num_results": 5
+        },
+        "result_count": 2,
+        "result_ids": [
+          "aml-009",
+          "aml-008"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-009"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-008"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-048",
+    "question": "What would you tell a confused student? Can you explain convolutional neural networks using the course materials?",
+    "base_question": "Can you explain convolutional neural networks using the course materials?",
+    "expected_material_ids": [],
+    "category": "insufficient_materials",
+    "final_answer": "The current course materials are insufficient to answer this question using the course materials: What would you tell a confused student? Can you explain convolutional neural networks using the course materials? To support this query, add relevant course notes, slides, or readings to the knowledge base.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "convolutional neural networks",
+          "num_results": 5
+        },
+        "result_count": 0,
+        "result_ids": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-049",
+    "question": "Summarize the course-material answer: When should I use MAE instead of MSE in a regression problem?",
+    "base_question": "When should I use MAE instead of MSE in a regression problem?",
+    "expected_material_ids": [
+      "aml-001"
+    ],
+    "category": "regression_metrics",
+    "final_answer": "In regression problems, you should use Mean Absolute Error (MAE) when you want an evaluation metric that is easy to interpret in the target units and is less sensitive to outliers. On the other hand, Mean Squared Error (MSE) is preferable when large errors are particularly costly, as it penalizes big mistakes more heavily due to the squaring of errors (aml-001).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "MAE vs MSE regression",
+          "num_results": 5
+        },
+        "result_count": 1,
+        "result_ids": [
+          "aml-001"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-001"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-050",
+    "question": "Summarize the course-material answer: Give me a short study guide about decision trees.",
+    "base_question": "Give me a short study guide about decision trees.",
+    "expected_material_ids": [
+      "aml-002"
+    ],
+    "category": "decision_trees",
+    "final_answer": "### Study Guide: Decision Trees\n\n**1. Overview of Decision Trees**\n- A decision tree makes predictions by splitting data into smaller groups using feature-based rules.\n- At each internal node, the tree selects a split that increases the purity of the resulting groups concerning the target variable.\n- They are interpretable and can capture nonlinear relationships, but deep trees may overfit the training data. (Source: aml-002)\n\n**2. Key Concepts**\n- **Entropy**: \n  - A measure of uncertainty in class labels at a node.\n  - High entropy indicates a balanced mix of classes, while low entropy indicates dominance of one class.\n  - Decision trees use information gain (the reduction in entropy after a split) to determine the most effective feature and threshold for splitting. (Source: aml-004)\n\n- **Gini Impurity**:\n  - Measures the likelihood of a randomly chosen example being incorrectly labeled if assigned a class label based on the class distribution in a node.\n  - A node is pure (Gini impurity of 0) when all examples belong to one class.\n  - Decision trees can use Gini impurity to select splits that enhance class homogeneity in child nodes. (Source: aml-003)\n\n### Conclusion\nUnderstanding decision trees involves grasping how they split data based on features, the concepts of entropy and Gini impurity, and their implications for model performance and interpretability.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "decision trees",
+          "num_results": 5
+        },
+        "result_count": 3,
+        "result_ids": [
+          "aml-002",
+          "aml-004",
+          "aml-003"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-002"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-004"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-003"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-051",
+    "question": "Summarize the course-material answer: Why can accuracy be misleading for an imbalanced classification dataset?",
+    "base_question": "Why can accuracy be misleading for an imbalanced classification dataset?",
+    "expected_material_ids": [
+      "aml-008",
+      "aml-009"
+    ],
+    "category": "classification_metrics",
+    "final_answer": "Accuracy can be misleading in imbalanced classification datasets because it may reflect high performance by predominantly predicting the majority class. For instance, if one class is much more frequent, a model could achieve high accuracy simply by predicting that class most of the time, while failing to identify the minority class effectively. \n\nTo better evaluate model performance in such scenarios, it's essential to consider other metrics like precision, recall, F1 score, and confusion matrices. These metrics provide a more nuanced view of how well the model performs, especially regarding the minority class. Depending on the specific goals, techniques like resampling or applying class weights may also be beneficial (aml-009, aml-008).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "Why can accuracy be misleading for an imbalanced classification dataset?",
+          "num_results": 5
+        },
+        "result_count": 5,
+        "result_ids": [
+          "aml-009",
+          "aml-008",
+          "aml-006",
+          "aml-010",
+          "aml-003"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-009"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-008"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-052",
+    "question": "Summarize the course-material answer: Can you explain convolutional neural networks using the course materials?",
+    "base_question": "Can you explain convolutional neural networks using the course materials?",
+    "expected_material_ids": [],
+    "category": "insufficient_materials",
+    "final_answer": "The current course materials are insufficient to answer this question using the course materials: Summarize the course-material answer: Can you explain convolutional neural networks using the course materials? To support this query, add relevant course notes, slides, or readings to the knowledge base.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "convolutional neural networks",
+          "num_results": 5
+        },
+        "result_count": 0,
+        "result_ids": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-053",
+    "question": "State the answer and one caution: When should I use MAE instead of MSE in a regression problem?",
+    "base_question": "When should I use MAE instead of MSE in a regression problem?",
+    "expected_material_ids": [
+      "aml-001"
+    ],
+    "category": "regression_metrics",
+    "final_answer": "You should use Mean Absolute Error (MAE) instead of Mean Squared Error (MSE) in a regression problem when you want an evaluation metric that is easy to interpret in the target units and is less sensitive to outliers. \n\n**Caution:** MAE treats all errors linearly, which means it does not penalize large errors as heavily as MSE does. If large errors are particularly costly in your application, MSE might be a better choice (aml-001).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "MAE vs MSE regression",
+          "num_results": 5
+        },
+        "result_count": 1,
+        "result_ids": [
+          "aml-001"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-001"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-054",
+    "question": "State the answer and one caution: Give me a short study guide about decision trees.",
+    "base_question": "Give me a short study guide about decision trees.",
+    "expected_material_ids": [
+      "aml-002"
+    ],
+    "category": "decision_trees",
+    "final_answer": "### Study Guide: Decision Trees\n\n**Overview:**\n- A decision tree is a predictive model that makes decisions based on feature-based rules by repeatedly splitting the data into smaller groups. Each internal node represents a decision point that aims to create more homogeneous groups concerning the target variable.\n\n**Key Concepts:**\n1. **Splitting Criteria:**\n   - **Entropy:** Measures the uncertainty in class labels at a node. High entropy indicates a balanced mix of classes, while low entropy indicates dominance by one class. Decision trees use information gain (the reduction in entropy) to determine the best feature and threshold for splitting (aml-004).\n   - **Gini Impurity:** Measures the likelihood of mislabeling a randomly chosen example based on the class distribution in a node. A pure node (all examples belong to one class) has a Gini impurity of 0. Decision trees can use Gini impurity to select splits that enhance class homogeneity in child nodes (aml-003).\n\n2. **Advantages:**\n   - Decision trees are interpretable and can capture nonlinear relationships in the data (aml-002).\n\n3. **Caution:**\n   - Deep decision trees can overfit the training data, leading to poor generalization on unseen data (aml-002).\n\nThis guide provides a concise overview of decision trees, their functioning, and considerations for their use. For further details, refer to the respective materials: aml-002, aml-003, and aml-004.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "decision trees",
+          "num_results": 5
+        },
+        "result_count": 3,
+        "result_ids": [
+          "aml-002",
+          "aml-004",
+          "aml-003"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-002"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-004"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-003"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-055",
+    "question": "State the answer and one caution: Why can accuracy be misleading for an imbalanced classification dataset?",
+    "base_question": "Why can accuracy be misleading for an imbalanced classification dataset?",
+    "expected_material_ids": [
+      "aml-008",
+      "aml-009"
+    ],
+    "category": "classification_metrics",
+    "final_answer": "**Answer:** Accuracy can be misleading for an imbalanced classification dataset because a model may predict the majority class most of the time and still appear successful. This can result in high accuracy while the model performs poorly on the minority class, which is often the class of interest (aml-009).\n\n**Caution:** Relying solely on accuracy can hide poor performance on minority classes. It's essential to consider other metrics such as precision, recall, and F1 score to get a more comprehensive view of model performance (aml-008).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "accuracy misleading imbalanced classification",
+          "num_results": 5
+        },
+        "result_count": 2,
+        "result_ids": [
+          "aml-009",
+          "aml-008"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-009"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-008"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-056",
+    "question": "State the answer and one caution: Can you explain convolutional neural networks using the course materials?",
+    "base_question": "Can you explain convolutional neural networks using the course materials?",
+    "expected_material_ids": [],
+    "category": "insufficient_materials",
+    "final_answer": "The current course materials are insufficient to answer this question using the course materials: State the answer and one caution: Can you explain convolutional neural networks using the course materials? To support this query, add relevant course notes, slides, or readings to the knowledge base.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "convolutional neural networks",
+          "num_results": 5
+        },
+        "result_count": 0,
+        "result_ids": []
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-057",
+    "question": "Give a two-paragraph answer: When should I use MAE instead of MSE in a regression problem?",
+    "base_question": "When should I use MAE instead of MSE in a regression problem?",
+    "expected_material_ids": [
+      "aml-001"
+    ],
+    "category": "regression_metrics",
+    "final_answer": "In regression problems, the choice between Mean Absolute Error (MAE) and Mean Squared Error (MSE) depends on the specific goals of the analysis. MAE averages the absolute size of prediction errors, meaning that each error contributes linearly to the overall metric. This makes MAE easier to interpret in the context of the target variable's units and less sensitive to outliers. Therefore, MAE is preferable when you want a robust evaluation metric that provides a straightforward understanding of average prediction error without being disproportionately affected by extreme values.\n\nOn the other hand, MSE averages the squared errors, which means that larger mistakes are penalized more heavily. This characteristic makes MSE suitable for situations where large errors are particularly costly or undesirable. If the goal is to ensure that the model training and evaluation process strongly penalizes significant misses, MSE would be the appropriate choice. In summary, use MAE for interpretability and robustness against outliers, and opt for MSE when large errors need to be emphasized (aml-001).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "MAE vs MSE",
+          "num_results": 5
+        },
+        "result_count": 1,
+        "result_ids": [
+          "aml-001"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-001"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-058",
+    "question": "Give a two-paragraph answer: Give me a short study guide about decision trees.",
+    "base_question": "Give me a short study guide about decision trees.",
+    "expected_material_ids": [
+      "aml-002"
+    ],
+    "category": "decision_trees",
+    "final_answer": "Decision trees are a popular supervised learning method used for classification and regression tasks. They operate by recursively splitting the dataset into smaller subsets based on feature-based rules, aiming to create groups that are more homogeneous with respect to the target variable. Each internal node in the tree represents a decision point based on a feature, while the leaves represent the final predictions. Decision trees are valued for their interpretability and ability to capture nonlinear relationships in data. However, they can be prone to overfitting, especially when the trees are deep and complex (aml-002).\n\nTo determine the best splits at each node, decision trees often utilize metrics such as entropy and Gini impurity. Entropy measures the uncertainty in the class labels at a node; a high entropy indicates a balanced mix of classes, while low entropy suggests that one class predominates. Information gain, which is the reduction in entropy after a split, helps in selecting the most informative features. Gini impurity, on the other hand, quantifies the likelihood of mislabeling a randomly chosen example based on the class distribution in a node. A node is considered pure when all examples belong to a single class, resulting in a Gini impurity of zero. Both metrics guide the decision tree in creating splits that enhance the homogeneity of the resulting child nodes (aml-003, aml-004).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "decision trees",
+          "num_results": 5
+        },
+        "result_count": 3,
+        "result_ids": [
+          "aml-002",
+          "aml-004",
+          "aml-003"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-002"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-004"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-003"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-059",
+    "question": "Give a two-paragraph answer: Why can accuracy be misleading for an imbalanced classification dataset?",
+    "base_question": "Why can accuracy be misleading for an imbalanced classification dataset?",
+    "expected_material_ids": [
+      "aml-008",
+      "aml-009"
+    ],
+    "category": "classification_metrics",
+    "final_answer": "Accuracy can be misleading in imbalanced classification datasets because it primarily reflects the performance of the majority class. In such scenarios, a model might achieve high accuracy by predominantly predicting the majority class, while neglecting the minority class entirely. This can create a false sense of success, as the model may not be effectively identifying or classifying instances of the minority class, which is often the class of greater interest. Therefore, relying solely on accuracy can obscure the model's true performance and lead to inadequate decision-making (aml-009).\n\nTo better evaluate model performance in imbalanced datasets, it is essential to consider additional metrics such as precision, recall, and the F1 score. Precision indicates the proportion of true positive predictions among all positive predictions, while recall measures the model's ability to identify actual positive instances. The F1 score combines both precision and recall, providing a more comprehensive view of the model's effectiveness, especially when both false positives and false negatives are critical (aml-008).",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "accuracy misleading imbalanced classification",
+          "num_results": 5
+        },
+        "result_count": 2,
+        "result_ids": [
+          "aml-009",
+          "aml-008"
+        ]
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-009"
+        },
+        "found": true
+      },
+      {
+        "tool": "get_course_material",
+        "arguments": {
+          "material_id": "aml-008"
+        },
+        "found": true
+      }
+    ],
+    "error": null
+  },
+  {
+    "id": "eval-060",
+    "question": "Give a two-paragraph answer: Can you explain convolutional neural networks using the course materials?",
+    "base_question": "Can you explain convolutional neural networks using the course materials?",
+    "expected_material_ids": [],
+    "category": "insufficient_materials",
+    "final_answer": "The current course materials are insufficient to answer this question using the course materials: Give a two-paragraph answer: Can you explain convolutional neural networks using the course materials? To support this query, add relevant course notes, slides, or readings to the knowledge base.",
+    "tool_call_history": [
+      {
+        "tool": "search_course_materials",
+        "arguments": {
+          "query": "convolutional neural networks",
+          "num_results": 5
+        },
+        "result_count": 0,
+        "result_ids": []
+      }
+    ],
+    "error": null
+  }
+]

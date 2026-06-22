@@ -1,0 +1,10 @@
+{
+  "judged_file": "evals\\results_judged_calibrated.json",
+  "total_labeled": 33,
+  "accuracy": 1.0,
+  "precision_bad": 1.0,
+  "recall_bad": 1.0,
+  "disagreement_count": 0,
+  "false_bad_count": 0,
+  "disagreements": []
+}

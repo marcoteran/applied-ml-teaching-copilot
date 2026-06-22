@@ -1,0 +1,109 @@
+{
+  "judged_file": "evals\\results_judged_improved.json",
+  "total_labeled": 33,
+  "accuracy": 0.576,
+  "precision_bad": 0.067,
+  "recall_bad": 1.0,
+  "disagreement_count": 14,
+  "false_bad_count": 14,
+  "disagreements": [
+    {
+      "id": "eval-002",
+      "manual_label": "good",
+      "predicted_label": "bad",
+      "question": "Answer briefly: Give me a short study guide about decision trees.",
+      "rationale": "The answer lacks clear grounding in the expected material, specifically omitting citations for key concepts like entropy and Gini impurity. While it references course materials, it does not adequately connect the definitions and concepts to the specific material IDs provided, particularly for the definitions and explanations of entropy and Gini impurity."
+    },
+    {
+      "id": "eval-004",
+      "manual_label": "good",
+      "predicted_label": "bad",
+      "question": "Answer briefly: Can you explain convolutional neural networks using the course materials?",
+      "rationale": "The answer claims that the course materials are insufficient without providing any explanation of convolutional neural networks (CNNs) or referencing any relevant concepts. It fails to address the question directly and does not utilize the tool results effectively, which showed no relevant materials. A good answer should at least provide a brief explanation of CNNs, even if it acknowledges the lack of course materials."
+    },
+    {
+      "id": "eval-005",
+      "manual_label": "good",
+      "predicted_label": "bad",
+      "question": "Explain for a beginner: When should I use MAE instead of MSE in a regression problem?",
+      "rationale": "The answer provides a clear explanation of when to use MAE versus MSE, but it lacks proper citations to the course material. While it mentions 'aml-001' at the end, it does not integrate or reference specific content from that material to support the claims made. This omission weakens the grounding of the response."
+    },
+    {
+      "id": "eval-008",
+      "manual_label": "good",
+      "predicted_label": "bad",
+      "question": "Explain for a beginner: Can you explain convolutional neural networks using the course materials?",
+      "rationale": "The answer claims that the course materials are insufficient without providing any explanation of convolutional neural networks (CNNs) for beginners. It fails to address the question directly and does not utilize any of the available course materials, even though the tool history indicates that there were no results found. A better response would include a basic explanation of CNNs, regardless of the availability of specific course materials."
+    },
+    {
+      "id": "eval-010",
+      "manual_label": "good",
+      "predicted_label": "bad",
+      "question": "Create a concise classroom answer: Give me a short study guide about decision trees.",
+      "rationale": "The answer references materials (aml-002, aml-003, aml-004) but does not provide a clear citation for each concept discussed. Specifically, while it cites aml-002 for the definition and cautions, it fails to cite the specific materials for entropy and Gini impurity, which are critical concepts in decision trees. This lack of proper citation undermines the grounding of the explanations provided."
+    },
+    {
+      "id": "eval-012",
+      "manual_label": "good",
+      "predicted_label": "bad",
+      "question": "Create a concise classroom answer: Can you explain convolutional neural networks using the course materials?",
+      "rationale": "The answer claims that the course materials are insufficient without providing any explanation of convolutional neural networks (CNNs) or referencing any relevant concepts. It fails to address the question directly and does not utilize the tool results effectively, which showed no relevant materials. A good answer should at least provide a brief explanation of CNNs, even if it acknowledges the lack of specific course materials."
+    },
+    {
+      "id": "eval-016",
+      "manual_label": "good",
+      "predicted_label": "bad",
+      "question": "What should a student remember about this? Can you explain convolutional neural networks using the course materials?",
+      "rationale": "The answer claims that the course materials are insufficient without providing any specific details or context about what the student should remember regarding convolutional neural networks. It also fails to explain the concept itself, which is a critical part of the question. Additionally, it does not reference any specific course materials or provide a rationale for the claim of insufficiency."
+    },
+    {
+      "id": "eval-017",
+      "manual_label": "good",
+      "predicted_label": "bad",
+      "question": "Give one practical takeaway: When should I use MAE instead of MSE in a regression problem?",
+      "rationale": "The answer provides a practical takeaway regarding when to use MAE instead of MSE, but it lacks specific citations from the expected material (aml-001) to support the claims made. While it mentions the material ID, it does not directly reference any content or concepts from that material, which is necessary for a well-grounded response."
+    },
+    {
+      "id": "eval-018",
+      "manual_label": "good",
+      "predicted_label": "bad",
+      "question": "Give one practical takeaway: Give me a short study guide about decision trees.",
+      "rationale": "The answer lacks clear grounding in the expected material, specifically omitting citations for key concepts like Gini impurity and entropy. While it references material IDs, it does not adequately connect the definitions and explanations to the specific content of the cited materials. Additionally, the practical takeaway is vague and does not provide actionable insights or examples."
+    },
+    {
+      "id": "eval-020",
+      "manual_label": "good",
+      "predicted_label": "bad",
+      "question": "Give one practical takeaway: Can you explain convolutional neural networks using the course materials?",
+      "rationale": "The answer claims that the course materials are insufficient without providing any specific details or context about what was searched or what is missing. It also fails to explain convolutional neural networks, which is the core of the question. Simply stating that more materials are needed does not fulfill the requirement to provide a practical takeaway."
+    },
+    {
+      "id": "eval-022",
+      "manual_label": "good",
+      "predicted_label": "bad",
+      "question": "Use the course materials to answer: Give me a short study guide about decision trees.",
+      "rationale": "The answer provides a study guide on decision trees but fails to adhere to the requirement of using only the specified course material (aml-002). While it cites other materials (aml-003 and aml-004), it does not justify their inclusion based on the question's directive to focus on the specified material. This lack of adherence to the expected material leads to a lack of grounding in the response."
+    },
+    {
+      "id": "eval-024",
+      "manual_label": "good",
+      "predicted_label": "bad",
+      "question": "Use the course materials to answer: Can you explain convolutional neural networks using the course materials?",
+      "rationale": "The answer claims that the course materials are insufficient without providing any specific details or context from the materials. It also fails to explain convolutional neural networks, which is the core of the question. Simply stating that more materials are needed does not fulfill the requirement to explain the topic."
+    },
+    {
+      "id": "eval-028",
+      "manual_label": "good",
+      "predicted_label": "bad",
+      "question": "Make this exam-review friendly: Can you explain convolutional neural networks using the course materials?",
+      "rationale": "The answer claims that the course materials are insufficient without providing any explanation of convolutional neural networks (CNNs) or referencing any relevant concepts that could be derived from general knowledge. It fails to make the content exam-review friendly, which is a key requirement of the question."
+    },
+    {
+      "id": "eval-032",
+      "manual_label": "good",
+      "predicted_label": "bad",
+      "question": "What is the most important distinction? Can you explain convolutional neural networks using the course materials?",
+      "rationale": "The answer claims that the course materials are insufficient without providing any specific details or context about what is missing. It also fails to explain convolutional neural networks, which is a key part of the question. Simply stating that materials are lacking does not fulfill the requirement to explain the topic."
+    }
+  ]
+}

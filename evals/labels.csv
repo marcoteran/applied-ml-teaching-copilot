@@ -1,0 +1,34 @@
+id,label,failure_category,notes
+eval-001,good,,manual seed label
+eval-002,good,,manual seed label
+eval-003,good,,manual seed label
+eval-004,good,,grounded insufficiency
+eval-005,good,,manual seed label
+eval-006,good,,manual seed label
+eval-007,good,,manual seed label
+eval-008,good,,grounded insufficiency
+eval-009,good,,manual seed label
+eval-010,good,,manual seed label
+eval-011,good,,manual seed label
+eval-012,good,,grounded insufficiency
+eval-013,good,,manual seed label
+eval-014,good,,manual seed label
+eval-015,good,,manual seed label
+eval-016,good,,grounded insufficiency
+eval-017,good,,manual seed label
+eval-018,good,,manual seed label
+eval-019,good,,manual seed label
+eval-020,good,,grounded insufficiency
+eval-021,good,,manual seed label
+eval-022,good,,manual seed label
+eval-023,good,,manual seed label
+eval-024,good,,grounded insufficiency
+eval-025,good,,manual seed label
+eval-026,good,,manual seed label
+eval-027,good,,manual seed label
+eval-028,good,,grounded insufficiency
+eval-029,good,,manual seed label
+eval-030,good,,manual seed label
+eval-031,good,,manual seed label
+eval-032,good,,grounded insufficiency
+eval-033,bad,incomplete,manual seed label
