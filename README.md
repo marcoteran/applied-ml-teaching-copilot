@@ -192,3 +192,9 @@ See [docs/PROJECT_SELF_EVALUATION.md](docs/PROJECT_SELF_EVALUATION.md).
 - Deploy to cloud.
 - Add CI/CD.
 - Improve judge calibration with a train/test label split.
+
+## Demo Evidence
+
+### Streamlit UI
+
+![Streamlit demo](docs/assets/streamlit_demo.png)

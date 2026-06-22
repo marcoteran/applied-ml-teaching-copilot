@@ -3,10 +3,23 @@ from __future__ import annotations
 import asyncio
 import inspect
 import json
+import os
 import re
 from typing import Any
 
 import streamlit as st
+
+
+def _bridge_streamlit_secrets_to_env() -> None:
+    try:
+        for key in ("OPENAI_API_KEY", "LOGFIRE_TOKEN", "LOGFIRE_READ_TOKEN"):
+            if key in st.secrets and not os.getenv(key):
+                os.environ[key] = str(st.secrets[key])
+    except Exception:
+        return
+
+
+_bridge_streamlit_secrets_to_env()
 
 from src.teaching_agent import run_teaching_copilot
 

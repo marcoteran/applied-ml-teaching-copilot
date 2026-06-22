@@ -1,0 +1,19 @@
+We are preparing this Streamlit app for deployment on Streamlit Community Cloud.
+
+Project:
+Applied ML Teaching Copilot
+
+Tasks:
+1. Inspect app.py, src/teaching_agent.py, src/monitoring.py, pyproject.toml, and imports.
+2. Create a root-level requirements.txt suitable for Streamlit Community Cloud.
+3. Include only runtime dependencies needed to run app.py, not dev/test-only packages unless required.
+4. Make sure requirements.txt includes at least:
+   - streamlit
+   - openai
+   - python-dotenv
+   - logfire
+   - pydantic if imported by runtime code
+5. Do not remove uv, pyproject.toml, or uv.lock.
+6. Do not touch .env.
+7. Do not commit.
+8. Summarize what you changed.
