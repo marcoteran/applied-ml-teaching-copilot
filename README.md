@@ -18,6 +18,14 @@ Students and instructors need a reliable assistant that answers from course mate
 - Supports evaluation with scenarios, manual labels, LLM judges, and alignment reports.
 - Provides a Streamlit chat UI for reviewers.
 
+## Live Demo
+
+A public Streamlit demo is available here:
+
+https://applied-ml-teaching-copilot.streamlit.app
+
+Note: This is a lightweight demo deployment for project review. The repository contains the full project evidence, including tests, monitoring scripts, evaluation results, manual labels, and LLM judge alignment metrics.
+
 ## Architecture
 
 ```text
